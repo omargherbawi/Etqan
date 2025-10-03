@@ -350,32 +350,7 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                               // TODO: Implement Facebook login
                             },
                           ),
-                          SizedBox(height: 12.h),
                         },
-                        if (_appController.isReviewing.value == true)
-                          const SizedBox(height: 12),
-                        GestureDetector(
-                          onTap: () {
-                            LaunchUrlService.openWhatsapp(context);
-                          },
-                          child: Row(
-                            spacing: 6.w,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                AssetPaths.whatsappSvg,
-                                height: 20.w,
-                                width: 20.w,
-                              ),
-                              CustomTextWidget(
-                                text: "needHelpContactUs",
-                                textThemeStyle: TextThemeStyleEnum.titleSmall,
-                                color: SharedColors.authSecondaryColor,
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 20),
                       ],
                     ),
                   ),
