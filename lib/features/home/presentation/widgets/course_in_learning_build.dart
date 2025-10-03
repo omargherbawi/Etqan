@@ -106,24 +106,29 @@ class CourseInLearningBuild extends StatelessWidget {
                 // Course name and continue learning text (bottom left)
                 Positioned(
                   bottom: 16.h,
-                  left: 16.w,
+                  left: 27.w,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomTextWidget(
-                        text: course.title ?? "",
-                        maxLines: 2,
+                        text:
+                            (course.title ?? "").length > 31
+                                ? "${(course.title ?? "").substring(0, 31)}. . ."
+                                : (course.title ?? ""),
+                        maxLines: 1,
                         textAlign: TextAlign.start,
                         textThemeStyle: TextThemeStyleEnum.titleMedium,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
+                        fontSize: Responsive.isTablet ? 25.sp : 21.sp,
                       ),
                       Gap(4.h),
                       CustomTextWidget(
                         text: "continueLearning",
                         textThemeStyle: TextThemeStyleEnum.bodySmall,
                         maxLines: 1,
-                        color: Colors.white.withOpacity(0.9),
+                        color: Colors.white,
+                        fontSize: Responsive.isTablet ? 20.sp : 16.sp,
                       ),
                     ],
                   ),
