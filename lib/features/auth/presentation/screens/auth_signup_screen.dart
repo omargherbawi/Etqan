@@ -49,7 +49,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
   @override
   void initState() {
     super.initState();
-    countryCode = CountryCode(code: "SY", dialCode: "+963", name: "syria");
+    countryCode = CountryCode(code: "JO", dialCode: "+962", name: "Jordon");
     _tabController = TabController(length: 2, vsync: this);
     _tabController.addListener(() {
       logInfo("_tabController.index: ${_tabController.index}");

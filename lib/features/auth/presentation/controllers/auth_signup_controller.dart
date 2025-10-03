@@ -28,16 +28,16 @@ class AuthSignupController extends GetxController {
   final selectedClass = Rxn<ClassModel>();
 
   final selectedCountry = country_picker.Country(
-    phoneCode: '963',
-    countryCode: 'SY',
+    phoneCode: '962',
+    countryCode: 'JO',
     e164Sc: 0,
     geographic: true,
     level: 1,
-    name: 'Syria',
-    example: 'Syria',
-    displayName: 'Syria (سوريا)',
-    displayNameNoCountryCode: 'Syria (سوريا)',
-    e164Key: '963-SY-0',
+    name: 'Jordan',
+    example: 'Jordan',
+    displayName: 'Jordan (الأردن)',
+    displayNameNoCountryCode: 'Jordan (الأردن)',
+    e164Key: '962-JO-0',
   ).obs;
 
   void updateLoginLoading(bool val) {
