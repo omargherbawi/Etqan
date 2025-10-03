@@ -16,6 +16,8 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart' hide Trans;
 
 import '../controllers/auth_controller.dart';
+import '../widgets/auth_text_field_widget.dart';
+import '../widgets/social_button_widget.dart';
 
 class AuthSigninScreen extends StatefulWidget {
   const AuthSigninScreen({super.key});
@@ -29,7 +31,6 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
   final _phoneController = TextEditingController();
   final _passwordFocusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
-  bool _showPass = false;
   final _authController = Get.find<AuthController>();
   final _appController = Get.find<AppController>();
 
@@ -72,43 +73,44 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
       body: SafeArea(
         top: false,
         child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(top: 60.h),
-            child: Padding(
-              padding: UIConstants.mobileBodyPadding,
-              child: Form(
-                key: _formKey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.30,
+                width: double.infinity,
+                child: Image.asset(AssetPaths.appLogo, fit: BoxFit.contain),
+              ),
+              Container(
+                width: double.infinity,
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.of(context).size.height * 0.67,
+                ),
+                decoration: const BoxDecoration(
+                  color: SharedColors.authPrimaryColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        CircleIconButton(
-                          icon: Icons.arrow_back,
-                          iconColor: Get.theme.colorScheme.inverseSurface,
-                          onPressed: () {
-                            Get.offAllNamed(RoutePaths.visitor);
-                          },
-                          greyBackground: false,
+                        Text(
+                          'login'.tr(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                          ),
                         ),
-                      ],
-                    ),
-                    Image.asset(AssetPaths.appLogo, width: 180.w),
-                    Gap(35.h),
-
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomTextWidget(
-                          text: 'phoneNumber',
-                          fontWeight: FontWeight.w400,
-                          color: Theme.of(context).colorScheme.inverseSurface,
-                          textThemeStyle: TextThemeStyleEnum.bodyMedium,
-                        ),
-                        Gap(5.h),
+                        const SizedBox(height: 16),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -138,10 +140,7 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                                         ),
                                         filled: true,
                                         fillColor:
-                                            Get
-                                                .theme
-                                                .colorScheme
-                                                .onSecondaryContainer,
+                                            SharedColors.authTextFieldBgColor,
                                         contentPadding: EdgeInsets.symmetric(
                                           horizontal: 16.w,
                                           vertical: 12.h,
@@ -158,7 +157,6 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                                           ),
                                           borderSide: BorderSide.none,
                                         ),
-
                                         prefixIcon: Icon(
                                           Icons.search,
                                           color: Get
@@ -180,11 +178,7 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                                   width: 60.w,
                                   height: 48.h,
                                   decoration: BoxDecoration(
-                                    color:
-                                        Get
-                                            .theme
-                                            .colorScheme
-                                            .onSecondaryContainer,
+                                    color: SharedColors.authTextFieldBgColor,
                                     borderRadius: BorderRadius.circular(
                                       UIConstants.radius12,
                                     ),
@@ -203,17 +197,17 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                             }),
                             Gap(10.w),
                             Expanded(
-                              child: TextWithTextField(
+                              child: AuthTextFieldWidget(
                                 numbersOnly: true,
-                                text: "phoneNumber",
-                                hintText: "phoneNumber",
-                                filled: true,
-                                hideLabel: true,
+                                title: "phoneNumber",
+                                prefixIcon: const Icon(
+                                  Icons.phone_outlined,
+                                  color: Colors.grey,
+                                ),
+                                keyboardType: TextInputType.phone,
                                 validator:
                                     (value) =>
                                         phoneNumberValidator(value, context),
-                                fillColor:
-                                    Get.theme.colorScheme.onSecondaryContainer,
                                 controller: _phoneController,
                                 onFieldSubmitted: (_) {
                                   FocusScope.of(
@@ -224,105 +218,142 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                    Gap(5.h),
-                    TextWithTextField(
-                      validator: (value) => passwordValidator(value, context),
-                      text: "password",
-                      filled: true,
-                      fillColor: Get.theme.colorScheme.onSecondaryContainer,
-                      boldLabel: true,
-                      hintText: "password",
-                      controller: _passwordController,
-                      width: double.infinity,
-                      isPass: !_showPass,
-                      focusNode: _passwordFocusNode,
-                      onFieldSubmitted: (_) {
-                        // _loginAction();
-                      },
-                      suffix: IconButton(
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onPressed: () {
-                          setState(() {
-                            _showPass = !_showPass;
-                          });
-                        },
-                        icon: Icon(
-                          _showPass ? Icons.visibility : Icons.visibility_off,
-                          color: SharedColors.greyTextColor,
+                        const SizedBox(height: 14),
+                        AuthTextFieldWidget(
+                          title: 'password',
+                          prefixIcon: const Icon(
+                            Icons.lock_outlined,
+                            color: Colors.grey,
+                          ),
+                          keyboardType: TextInputType.text,
+                          isPassword: true,
+                          controller: _passwordController,
+                          validator:
+                              (value) => passwordValidator(value, context),
+                          focusNode: _passwordFocusNode,
+                          onFieldSubmitted: (_) {
+                            _loginAction();
+                          },
                         ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: InkWell(
-                        onTap: () {
-                          LaunchUrlService.openWhatsappToSupport(context);
-                        },
-                        child: CustomTextWidget(
-                          text: "forgotPassword",
-                          color: Theme.of(context).colorScheme.primary,
-                          textThemeStyle: TextThemeStyleEnum.titleSmall,
-                          fontWeight: FontWeight.w500,
-                          decoration: TextDecoration.underline,
-                          decorationThickness: 0.85,
-                        ),
-                      ),
-                    ),
-                    Gap(20.h),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
+                        const SizedBox(height: 20),
                         Obx(() {
-                          return CustomButton(
+                          return ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: SharedColors.authActionColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              minimumSize: const Size(double.infinity, 50),
+                            ),
                             onPressed: _loginAction,
-                            borderRadius: 25,
-                            width: double.infinity,
-                            elevation: 8,
                             child:
                                 _authController.isLoading.value
                                     ? LoadingAnimation(
                                       color: Get.theme.colorScheme.onSurface,
                                     )
-                                    : CustomTextWidget(
-                                      text: "login",
-                                      color: Get.theme.colorScheme.onSurface,
-                                      fontSize: Responsive.isTablet ? 10 : null,
+                                    : Text(
+                                      'login'.tr(),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                      ),
                                     ),
                           );
                         }),
-
+                        const SizedBox(height: 18),
+                        GestureDetector(
+                          onTap: () {
+                            LaunchUrlService.openWhatsappToSupport(context);
+                          },
+                          child: Text(
+                            "forgotPassword".tr(),
+                            style: const TextStyle(
+                              color: SharedColors.authSecondaryColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                         if (_appController.isReviewing.value == false) ...{
-                          Gap(20.h),
-
+                          const SizedBox(height: 12),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const CustomTextWidget(
-                                text: "dontHaveAnAccount",
-                                textThemeStyle: TextThemeStyleEnum.titleSmall,
+                              Text(
+                                'dontHaveAnAccount'.tr(),
+                                style: const TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
                               ),
-                              Gap(5.w),
-                              InkWell(
+                              const SizedBox(width: 4),
+                              GestureDetector(
                                 onTap: () {
                                   Get.toNamed(RoutePaths.signup);
                                 },
-                                child: CustomTextWidget(
-                                  text: "signup",
-                                  color: Theme.of(context).colorScheme.primary,
-                                  textThemeStyle: TextThemeStyleEnum.titleSmall,
-                                  decoration: TextDecoration.underline,
-                                  decorationThickness: 0.85,
+                                child: Text(
+                                  'signup'.tr(),
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    color: SharedColors.authSecondaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ],
                           ),
-
-                          Gap(20.h),
+                          SizedBox(height: 12.h),
+                          Row(
+                            children: [
+                              const Expanded(
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: 1,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8.0,
+                                ),
+                                child: Text(
+                                  'OR'.tr(),
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              const Expanded(
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: 1,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 12.h),
+                          SocialButtonWidget(
+                            text: 'Google',
+                            iconPath: AssetPaths.googleSvg,
+                            backgroundColor: SharedColors.authActionColor,
+                            onPressed: () {
+                              // TODO: Implement Google login
+                            },
+                          ),
+                          SizedBox(height: 12.h),
+                          SocialButtonWidget(
+                            text: 'Facebook'.tr(),
+                            iconPath: AssetPaths.facebook,
+                            backgroundColor: SharedColors.authActionColor,
+                            onPressed: () {
+                              // TODO: Implement Facebook login
+                            },
+                          ),
+                          SizedBox(height: 12.h),
                         },
-
+                        if (_appController.isReviewing.value == true)
+                          const SizedBox(height: 12),
                         GestureDetector(
                           onTap: () {
                             LaunchUrlService.openWhatsapp(context);
@@ -336,41 +367,24 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                                 height: 20.w,
                                 width: 20.w,
                               ),
-
                               CustomTextWidget(
                                 text: "needHelpContactUs",
                                 textThemeStyle: TextThemeStyleEnum.titleSmall,
-                                color: Get.theme.colorScheme.primary,
+                                color: SharedColors.authSecondaryColor,
                               ),
                             ],
                           ),
                         ),
+                        const SizedBox(height: 20),
                       ],
                     ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class FlagWidget extends StatelessWidget {
-  const FlagWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 46.w,
-      height: 46.h,
-      decoration: BoxDecoration(
-        color: Get.theme.colorScheme.onSecondaryContainer,
-        borderRadius: BorderRadius.circular(UIConstants.radius12),
-      ),
-      child: Center(child: Text('🇸🇾', style: TextStyle(fontSize: 20.sp))),
     );
   }
 }

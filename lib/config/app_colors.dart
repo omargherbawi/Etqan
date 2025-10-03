@@ -66,4 +66,10 @@ class SharedColors {
   static const Color blueGreyColor = Color(0XFFEEF1FF);
   static const Color inActiveSwitchColor = Color(0XFFD9D9D9);
   static const darkRedColor = Color(0XFF00bea4);
+  
+  // Auth screen colors
+  static const Color authPrimaryColor = Color(0xFF6630bc);
+  static const Color authSecondaryColor = Color(0xFFFFA5A4);
+  static const Color authActionColor = Color(0xFF3B2063);
+  static const Color authTextFieldBgColor = Color(0xFF1A083B);
 }
