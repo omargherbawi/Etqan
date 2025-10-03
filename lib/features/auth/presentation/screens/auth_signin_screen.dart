@@ -11,7 +11,6 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart' hide Trans;
 
@@ -82,7 +81,7 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.30,
                 width: double.infinity,
-                child: Image.asset(AssetPaths.appLogo, fit: BoxFit.contain),
+                child: Image.asset(AssetPaths.login, fit: BoxFit.cover),
               ),
               Container(
                 width: double.infinity,

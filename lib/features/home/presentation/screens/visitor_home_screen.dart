@@ -92,7 +92,7 @@ class VisitorHomeScreenBody extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               CustomTextWidget(
-                                text: "منصة تدريب",
+                                text: "منصة إتقان",
                                 color: onSurfaceColor,
                               ),
                               CustomTextWidget(

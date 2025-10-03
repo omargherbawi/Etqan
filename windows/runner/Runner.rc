@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "منصة تدريب التعليمية" "\0"
+            VALUE "FileDescription", "منصة إتقان التعليمية" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "منصة تدريب التعليمية" "\0"
+            VALUE "InternalName", "منصة إتقان التعليمية" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "منصة تدريب التعليمية.exe" "\0"
-            VALUE "ProductName", "منصة تدريب التعليمية" "\0"
+            VALUE "OriginalFilename", "منصة إتقان التعليمية.exe" "\0"
+            VALUE "ProductName", "منصة إتقان التعليمية" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

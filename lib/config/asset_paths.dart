@@ -5,6 +5,7 @@ class AssetPaths {
   static const String appGradientLogo = 'assets/images/TedreebLogo.png';
   static const String sloganPng = "assets/images/solid_purple_background.png";
   static const String aboutPng = "assets/images/about.png";
+  static const String login = 'assets/images/login.png';
 
   static const String whatsappSvg = 'assets/svgs/whatsapp.svg';
   // Icons:

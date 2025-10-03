@@ -29,7 +29,7 @@
 
 
     <application
-        android:label="منصة تدريب"
+        android:label="منصة إتقان"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false"

@@ -165,7 +165,7 @@ class _HomeScreenBodyBuildState extends State<_HomeScreenBodyBuild>
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 CustomTextWidget(
-                                  text: "منصة تدريب",
+                                  text: "منصة إتقان",
                                   color: onSurfaceColor,
                                 ),
                                 CustomTextWidget(
