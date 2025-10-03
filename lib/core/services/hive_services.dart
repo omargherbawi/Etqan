@@ -80,6 +80,23 @@ class HiveServices {
         as int;
   }
 
+  // Last opened course management
+  void setLastOpenedCourse(Map<String, dynamic> courseData) {
+    _box.put(AppSettingsBoxConstants.lastOpenedCourseKey, courseData);
+  }
+
+  Map<String, dynamic>? getLastOpenedCourse() {
+    final data = _box.get(AppSettingsBoxConstants.lastOpenedCourseKey);
+    if (data != null && data is Map) {
+      return Map<String, dynamic>.from(data);
+    }
+    return null;
+  }
+
+  void clearLastOpenedCourse() {
+    _box.delete(AppSettingsBoxConstants.lastOpenedCourseKey);
+  }
+
   Future<void> clearPreferences() async {
     bool onBoardingStatus = getIsOnBoardingShown();
     bool notificationStatus = getAllowNotificationToApp();

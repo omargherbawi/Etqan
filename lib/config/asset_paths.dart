@@ -6,6 +6,7 @@ class AssetPaths {
   static const String sloganPng = "assets/images/solid_purple_background.png";
   static const String aboutPng = "assets/images/about.png";
   static const String login = 'assets/images/login.png';
+  static const String signup = 'assets/images/signup.png';
 
   static const String whatsappSvg = 'assets/svgs/whatsapp.svg';
   // Icons:

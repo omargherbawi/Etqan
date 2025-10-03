@@ -30,6 +30,8 @@ import 'package:tedreeb_edu_app/features/blogs/presentation/screens/blog_screen.
 import '../../../courses/presentation/controllers/user_course_controller.dart';
 import '../../../courses/presentation/screens/all_packages_screen.dart';
 import '../widgets/home_packages_widget_build.dart';
+import '../widgets/course_in_learning_build.dart';
+import '../controllers/last_opened_course_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -37,6 +39,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentUserController = Get.find<CurrentUserController>();
+
+    // Initialize or get the last opened course controller
+    if (!Get.isRegistered<LastOpenedCourseController>()) {
+      Get.put(LastOpenedCourseController());
+    } else {
+      // Refresh the data when returning to home
+      Get.find<LastOpenedCourseController>().refresh();
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -324,6 +334,26 @@ class _HomeScreenBodyBuildState extends State<_HomeScreenBodyBuild>
                           packages: sharedCoursesController.packages,
                         ),
                       },
+
+                      // Continue Learning Section
+                      Obx(() {
+                        final lastCourseController =
+                            Get.find<LastOpenedCourseController>();
+                        return Column(
+                          children: [
+                            if (lastCourseController.lastOpenedCourse.value !=
+                                null) ...{
+                              TopHeadingRowBuild(
+                                heading: "continueLearning",
+                                buttonText: "",
+                                onTap: () {},
+                              ),
+                              const CourseInLearningBuild(),
+                              Gap(16.h),
+                            },
+                          ],
+                        );
+                      }),
 
                       TopHeadingRowBuild(
                         heading: "معلمونا",

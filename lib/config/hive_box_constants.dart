@@ -18,4 +18,5 @@ class AppSettingsBoxConstants {
   static const String allowNotificationToApp = 'allow-notification-to-app';
   static const String splashKey = 'has-seen-splash';
   static const String paymentCards = 'payment_cards';
+  static const String lastOpenedCourseKey = 'last-opened-course';
 }

@@ -141,14 +141,14 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.23,
+                height: MediaQuery.of(context).size.height * 0.25,
                 width: double.infinity,
-                child: Image.asset(AssetPaths.appLogo, fit: BoxFit.contain),
+                child: Image.asset(AssetPaths.signup, fit: BoxFit.contain),
               ),
               Container(
                 width: double.infinity,
                 constraints: BoxConstraints(
-                  minHeight: MediaQuery.of(context).size.height * 0.75,
+                  minHeight: MediaQuery.of(context).size.height * 0.70,
                 ),
                 decoration: const BoxDecoration(
                   color: SharedColors.authPrimaryColor,
@@ -412,22 +412,22 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(4),
                                   ),
-                                  side: MaterialStateBorderSide.resolveWith(
-                                    (states) {
-                                      if (states.contains(
-                                        MaterialState.selected,
-                                      )) {
-                                        return BorderSide(
-                                          color: SharedColors.authSecondaryColor,
-                                          width: 2,
-                                        ); // حدود لما يكون checked
-                                      }
+                                  side: MaterialStateBorderSide.resolveWith((
+                                    states,
+                                  ) {
+                                    if (states.contains(
+                                      MaterialState.selected,
+                                    )) {
                                       return BorderSide(
-                                        color: Colors.white,
+                                        color: SharedColors.authSecondaryColor,
                                         width: 2,
-                                      ); // حدود أبيض لما يكون unchecked
-                                    },
-                                  ),
+                                      ); // حدود لما يكون checked
+                                    }
+                                    return BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ); // حدود أبيض لما يكون unchecked
+                                  }),
                                   fillColor: MaterialStateProperty.resolveWith<
                                     Color
                                   >((states) {
