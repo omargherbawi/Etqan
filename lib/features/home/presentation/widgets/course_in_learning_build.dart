@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '../../../../config/config.dart';
@@ -89,18 +90,20 @@ class CourseInLearningBuild extends StatelessWidget {
                 // Play icon (center)
                 Center(
                   child: Container(
-                    padding: EdgeInsets.all(16.w),
+                    padding: EdgeInsets.all(14.w),
                     decoration: BoxDecoration(
-                      color: AppLightColors.primaryColor.withOpacity(0.9),
+                      color: AppLightColors.whiteColor.withOpacity(.5),
                       borderRadius: BorderRadius.circular(32),
                     ),
-                    child: Icon(
-                      Icons.play_arrow,
-                      color: Colors.white,
-                      size: 32.sp,
+                    child: Image.asset(
+                      AssetPaths.play,
+                      width: 30.w,
+                      height: 30.h,
+                      color: Colors.black,
                     ),
                   ),
                 ),
+
                 // Course name and continue learning text (bottom left)
                 Positioned(
                   bottom: 16.h,
