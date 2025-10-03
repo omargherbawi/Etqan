@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import '../../../../config/asset_paths.dart';
+import '../../../../config/config.dart';
 import '../../../../core/core.dart';
 import '../../../../core/routes/route_paths.dart';
-import '../../../courses/presentation/widgets/icon_and_value_row_build.dart';
 import '../controllers/last_opened_course_controller.dart';
 
 class CourseInLearningBuild extends StatelessWidget {
@@ -36,65 +35,99 @@ class CourseInLearningBuild extends StatelessWidget {
             );
           },
           child: Container(
-            width: double.infinity,
-            height: Responsive.isTablet ? 200.h : 120.h,
+            width: Responsive.isTablet ? 380.w : 320.w,
+            height: Responsive.isTablet ? 450.h : 300.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(UIConstants.radius12),
-              color: Get.theme.colorScheme.inversePrimary,
             ),
-            child: Row(
+            child: Stack(
               children: [
-                // Course Image
+                // Course Image (full background)
                 Container(
-                  width: Responsive.isTablet ? 200.w : 120.w,
+                  width: double.infinity,
                   height: double.infinity,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(UIConstants.radius12),
-                      bottomLeft: Radius.circular(UIConstants.radius12),
-                    ),
+                    borderRadius: BorderRadius.circular(UIConstants.radius12),
                     image: DecorationImage(
                       image: NetworkImage(course.image ?? ""),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                Gap(12.w),
-                // Course Details
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomTextWidget(
-                          text: course.title ?? "",
-                          maxLines: 2,
-                          textAlign: TextAlign.start,
-                          textThemeStyle: TextThemeStyleEnum.titleMedium,
-                          fontWeight: FontWeight.w600,
-                          color: Get.theme.colorScheme.inverseSurface,
-                        ),
-                        Gap(4.h),
-                        if (course.classSemester != null) ...{
-                          CustomTextWidget(
-                            text: course.classSemester ?? "",
-                            textThemeStyle: TextThemeStyleEnum.bodySmall,
-                            maxLines: 1,
-                          ),
-                          Gap(4.h),
-                        },
-                        IconAndValueRowBuild(
-                          svg: AssetPaths.personGrey,
-                          value: course.teacher?.fullName ?? "",
-                          textStyle: TextThemeStyleEnum.bodySmall,
-                        ),
+                // Gradient overlay for better text readability
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(UIConstants.radius12),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.transparent,
+                        Colors.black.withOpacity(0.3),
+                        Colors.black.withOpacity(0.7),
                       ],
                     ),
                   ),
                 ),
-                Gap(8.w),
+                // Saved icon (top right)
+                Positioned(
+                  top: 12.h,
+                  right: 12.w,
+                  child: Container(
+                    padding: EdgeInsets.all(8.w),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.9),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Icon(
+                      Icons.bookmark,
+                      color: AppLightColors.primaryColor,
+                      size: 20.sp,
+                    ),
+                  ),
+                ),
+                // Play icon (center)
+                Center(
+                  child: Container(
+                    padding: EdgeInsets.all(16.w),
+                    decoration: BoxDecoration(
+                      color: AppLightColors.primaryColor.withOpacity(0.9),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Icon(
+                      Icons.play_arrow,
+                      color: Colors.white,
+                      size: 32.sp,
+                    ),
+                  ),
+                ),
+                // Course name and continue learning text (bottom left)
+                Positioned(
+                  bottom: 16.h,
+                  left: 16.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomTextWidget(
+                        text: course.title ?? "",
+                        maxLines: 2,
+                        textAlign: TextAlign.start,
+                        textThemeStyle: TextThemeStyleEnum.titleMedium,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                      Gap(4.h),
+                      CustomTextWidget(
+                        text: "continueLearning",
+                        textThemeStyle: TextThemeStyleEnum.bodySmall,
+                        maxLines: 1,
+                        color: Colors.white.withOpacity(0.9),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -103,4 +136,3 @@ class CourseInLearningBuild extends StatelessWidget {
     });
   }
 }
-
