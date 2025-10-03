@@ -90,6 +90,7 @@ dependencies:
   firebase_crashlytics: ^4.3.10
   flutter_udid: ^4.0.0
   comment_tree: ^0.3.0
+  liquid_glass_renderer: ^0.1.1-dev.10
 
 
 

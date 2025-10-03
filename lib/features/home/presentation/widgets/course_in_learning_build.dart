@@ -73,18 +73,16 @@ class CourseInLearningBuild extends StatelessWidget {
                 ),
                 // Saved icon (top right)
                 Positioned(
-                  top: 12.h,
-                  right: 12.w,
                   child: Container(
                     padding: EdgeInsets.all(8.w),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.9),
                       borderRadius: BorderRadius.circular(32),
                     ),
-                    child: Icon(
-                      Icons.bookmark,
-                      color: AppLightColors.primaryColor,
-                      size: 20.sp,
+                    child: Image.asset(
+                      AssetPaths.bookMark,
+                      width: 55.w,
+                      height: 55.h,
+                      color: Colors.white,
                     ),
                   ),
                 ),

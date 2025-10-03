@@ -64,6 +64,7 @@ class AssetPaths {
   static const String search = 'assets/svgs/search.svg';
   static const String noResultFound = 'assets/svgs/search_empty_state.svg';
   static const String blueNotification = 'assets/svgs/notification-bell.svg';
+  static const String bookMark = 'assets/icons/bookmark.png';
   static const String edit = 'assets/svgs/edit.svg';
   static const String arrowClearSvg = 'assets/svgs/arrow_clear.svg';
   static const String checkSvg = 'assets/svgs/check.svg';
