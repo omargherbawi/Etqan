@@ -13,6 +13,9 @@ import '../../../../core/utils/console_log_functions.dart';
 import '../../../../core/validators/general_validations.dart';
 import '../../data/models/country_code_model.dart';
 import '../controllers/auth_signup_controller.dart';
+import '../widgets/auth_text_field_widget.dart';
+import '../widgets/social_button_widget.dart';
+import '../../../shared/presentation/controllers/app_controller.dart';
 
 class AuthSignupScreen extends StatefulWidget {
   const AuthSignupScreen({super.key});
@@ -32,9 +35,8 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
   final _passwordFocusNode = FocusNode();
   final _confirmPasswordFocusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
-  bool _showPass = false;
-  bool _showConfirmPass = false;
   final _signupController = Get.find<AuthSignupController>();
+  final _appController = Get.find<AppController>();
   String accountType = 'user';
   String? otherRegisterMethod;
 
@@ -132,608 +134,425 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
       body: SafeArea(
         top: false,
         child: SingleChildScrollView(
-          physics: const ClampingScrollPhysics(),
-          child: Padding(
-            padding: UIConstants.desktopBody,
-            child: Column(
-              children: [
-                Gap(30.h),
-                Obx(
-                  () => Stack(
-                    children: [
-                      CircleIconButton(
-                        icon: Icons.arrow_back,
-                        iconColor: Get.theme.colorScheme.inverseSurface,
-                        onPressed: () {
-                          Get.back();
-                        },
-                        greyBackground: false,
-                      ),
-                      Form(
-                        key: _formKey,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Gap(30.h),
-
-                            const Center(
-                              child: CustomTextWidget(
-                                text: "createAccount",
-                                // color: Theme.of(context).colorScheme.primary,
-                                textThemeStyle:
-                                    TextThemeStyleEnum.headlineMedium,
-                              ),
-                            ),
-                            Gap(5.h),
-                            Center(
-                              child: CustomTextWidget(
-                                text: "fillYourInformationBelowToRegister",
-                                color: Get.theme.colorScheme.tertiaryContainer,
-                                textThemeStyle: TextThemeStyleEnum.bodyMedium,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-
-                            // Gap(30.h),
-                            // Center(child: AuthAvatarPicker()),
-                            // CustomTabbarWidget(
-                            //   controller: _tabController,
-                            //   allowPadding: false,
-                            //   tabs: [
-                            //     'student'.tr(context: context),
-                            //     'parent'.tr(context: context),
-                            //   ],
-                            // ),
-                            Gap(5.h),
-                            TextWithTextField(
-                              validator: (value) => isNotEmpty(value, context),
-                              text: "name",
-                              hintText: "name",
-                              filled: true,
-                              fillColor:
-                                  Get.theme.colorScheme.onSecondaryContainer,
-                              boldLabel: true,
-                              controller: _fullNameController,
-                            ),
-                            Gap(5.h),
-
-                            // GestureDetector(
-                            //   onTap: () {
-                            //     HelperFunctions.showCustomModalBottomSheet(
-                            //       isScrollControlled: true,
-                            //       context: context,
-                            //       child: Column(
-                            //         mainAxisSize: MainAxisSize.min,
-                            //         children: List.generate(
-                            //           _signupController.governorateList.length,
-                            //           (index) {
-                            //             final governorate =
-                            //                 _signupController
-                            //                     .governorateList[index];
-                            //             return Padding(
-                            //               padding: EdgeInsets.symmetric(
-                            //                 vertical: 8.0.h,
-                            //               ),
-                            //               child: GestureDetector(
-                            //                 onTap: () {
-                            //                   _signupController
-                            //                       .updateSelectedGovernorate(
-                            //                         governorate,
-                            //                       );
-                            //                   Get.close(1);
-                            //                 },
-                            //                 child: CustomTextWidget(
-                            //                   text: governorate.arName ?? '',
-                            //                 ),
-                            //               ),
-                            //             );
-                            //           },
-                            //         ),
-                            //       ),
-                            //     );
-                            //   },
-                            //   child: AbsorbPointer(
-                            //     absorbing: true,
-                            //     child: TextWithTextField(
-                            //       enabled: false,
-                            //       // validator: (value) => isNotEmpty(value, context),
-                            //       text: "governorate",
-
-                            //       suffix: const Icon(
-                            //         Icons.keyboard_arrow_down_sharp,
-                            //         color: Colors.black,
-                            //       ),
-                            //       hintText: "selectGovernorate",
-                            //       filled: true,
-                            //       fillColor:
-                            //           Get
-                            //               .theme
-                            //               .colorScheme
-                            //               .onSecondaryContainer,
-                            //       boldLabel: true,
-                            //       controller: TextEditingController(
-                            //         text:
-                            //             _signupController
-                            //                 .selectedGovernorate
-                            //                 .value
-                            //                 ?.arName ??
-                            //             "",
-                            //       ),
-                            //     ),
-                            //   ),
-                            // ),
-                            Gap(5.h),
-                            GestureDetector(
-                              onTap: () {
-                                HelperFunctions.showCustomModalBottomSheet(
-                                  isScrollControlled: true,
-                                  context: context,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: List.generate(
-                                      _signupController.programList.length,
-                                      (index) {
-                                        final major =
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.23,
+                width: double.infinity,
+                child: Image.asset(AssetPaths.appLogo, fit: BoxFit.contain),
+              ),
+              Container(
+                width: double.infinity,
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.of(context).size.height * 0.75,
+                ),
+                decoration: const BoxDecoration(
+                  color: SharedColors.authPrimaryColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'createAccount'.tr(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          'fillYourInformationBelowToRegister'.tr(),
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 14,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 16),
+                        AuthTextFieldWidget(
+                          title: "name",
+                          prefixIcon: const Icon(
+                            Icons.person_outlined,
+                            color: Colors.grey,
+                          ),
+                          keyboardType: TextInputType.text,
+                          controller: _fullNameController,
+                          validator: (value) => isNotEmpty(value ?? "", context),
+                        ),
+                        const SizedBox(height: 14),
+                        Obx(() {
+                          final selectedProgram =
+                              _signupController.selectedProgram.value;
+                          return GestureDetector(
+                            onTap: () {
+                              HelperFunctions.showCustomModalBottomSheet(
+                                isScrollControlled: true,
+                                context: context,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: List.generate(
+                                    _signupController.programList.length,
+                                    (index) {
+                                      final major =
+                                          _signupController.programList[index];
+                                      return Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          vertical: 8.0.h,
+                                        ),
+                                        child: GestureDetector(
+                                          onTap: () {
                                             _signupController
-                                                .programList[index];
-                                        return Padding(
-                                          padding: EdgeInsets.symmetric(
-                                            vertical: 8.0.h,
-                                          ),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              _signupController
-                                                  .updateSelectedMajor(major);
-                                              Get.close(1);
-                                            },
-                                            child: CustomTextWidget(
-                                              text: major.arName ?? '',
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                );
-                              },
-                              child: AbsorbPointer(
-                                absorbing: true,
-                                child: TextWithTextField(
-                                  enabled: false,
-
-                                  // validator: (value) => isNotEmpty(value, context),
-                                  text: "yourStudyStage",
-
-                                  suffix: const Icon(
-                                    Icons.keyboard_arrow_down_sharp,
-                                    color: Colors.black,
-                                  ),
-                                  hintText: "chooseYourStudyStage",
-                                  filled: true,
-                                  fillColor:
-                                      Get
-                                          .theme
-                                          .colorScheme
-                                          .onSecondaryContainer,
-                                  boldLabel: true,
-                                  controller: TextEditingController(
-                                    text:
-                                        _signupController
-                                            .selectedProgram
-                                            .value
-                                            ?.arName ??
-                                        "",
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Gap(5.h),
-
-                            // GestureDetector(
-                            //   onTap: () {
-                            //     if (_signupController.selectedProgram.value ==
-                            //         null) {
-                            //       ToastUtils.showError("chooseYourClassFirst");
-                            //       return;
-                            //     }
-                            //     HelperFunctions.showCustomModalBottomSheet(
-                            //       isScrollControlled: true,
-                            //       context: context,
-                            //       child: Column(
-                            //         mainAxisSize: MainAxisSize.min,
-                            //         children: List.generate(
-                            //           _signupController.filteredClasses.length,
-                            //           (index) {
-                            //             final selectedClass =
-                            //                 _signupController
-                            //                     .filteredClasses[index];
-                            //             return Padding(
-                            //               padding: EdgeInsets.symmetric(
-                            //                 vertical: 8.0.h,
-                            //               ),
-                            //               child: GestureDetector(
-                            //                 onTap: () {
-                            //                   _signupController
-                            //                       .updateSelectedSubject(
-                            //                         selectedClass,
-                            //                       );
-                            //                   Get.close(1);
-                            //                 },
-                            //                 child: CustomTextWidget(
-                            //                   text: selectedClass.arName ?? '',
-                            //                 ),
-                            //               ),
-                            //             );
-                            //           },
-                            //         ),
-                            //       ),
-                            //     );
-                            //   },
-                            //   child: AbsorbPointer(
-                            //     absorbing: true,
-                            //     child: TextWithTextField(
-                            //       enabled: false,
-
-                            //       // validator: (value) => isNotEmpty(value, context),
-                            //       text: "class",
-
-                            //       suffix: const Icon(
-                            //         Icons.keyboard_arrow_down_sharp,
-                            //         color: Colors.black,
-                            //       ),
-                            //       hintText: "chooseYourClass",
-                            //       filled: true,
-                            //       fillColor:
-                            //           Get
-                            //               .theme
-                            //               .colorScheme
-                            //               .onSecondaryContainer,
-                            //       boldLabel: true,
-                            //       controller: TextEditingController(
-                            //         text:
-                            //             _signupController
-                            //                 .selectedClass
-                            //                 .value
-                            //                 ?.arName ??
-                            //             "",
-                            //       ),
-                            //     ),
-                            //   ),
-                            // ),
-                            Gap(5.h),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CustomTextWidget(
-                                  text: 'phoneNumber',
-                                  fontWeight: FontWeight.w400,
-                                  color:
-                                      Theme.of(
-                                        context,
-                                      ).colorScheme.inverseSurface,
-                                  textThemeStyle: TextThemeStyleEnum.bodyMedium,
-                                ),
-                                Gap(5.h),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Obx(() {
-                                      final selectedCountry =
-                                          _signupController
-                                              .selectedCountry
-                                              .value;
-                                      return GestureDetector(
-                                        onTap: () {
-                                          showCountryPicker(
-                                            context: context,
-                                            showPhoneCode: false,
-                                            favorite: ['SY', 'TR', 'US', 'LU'],
-                                            countryListTheme: CountryListThemeData(
-                                              bottomSheetHeight: 700.h,
-                                              backgroundColor: Colors.white,
-                                              flagSize: 25.sp,
-                                              borderRadius:
-                                                  BorderRadius.circular(18.r),
-                                              textStyle: TextStyle(
-                                                fontSize: 16.sp,
-                                              ),
-                                              inputDecoration: InputDecoration(
-                                                hintText: 'Search'.tr(),
-                                                hintStyle: TextStyle(
-                                                  color: Get
-                                                      .theme
-                                                      .colorScheme
-                                                      .inverseSurface
-                                                      .withOpacity(0.6),
-                                                ),
-                                                filled: true,
-                                                fillColor:
-                                                    Get
-                                                        .theme
-                                                        .colorScheme
-                                                        .onSecondaryContainer,
-                                                contentPadding:
-                                                    EdgeInsets.symmetric(
-                                                      horizontal: 16.w,
-                                                      vertical: 12.h,
-                                                    ),
-                                                border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                        UIConstants.radius12,
-                                                      ),
-                                                  borderSide: BorderSide.none,
-                                                ),
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                            UIConstants
-                                                                .radius12,
-                                                          ),
-                                                      borderSide:
-                                                          BorderSide.none,
-                                                    ),
-
-                                                prefixIcon: Icon(
-                                                  Icons.search,
-                                                  color: Get
-                                                      .theme
-                                                      .colorScheme
-                                                      .inverseSurface
-                                                      .withOpacity(0.6),
-                                                ),
-                                              ),
-                                            ),
-                                            onSelect: (Country country) {
-                                              _signupController
-                                                  .updateSelectedCountry(
-                                                    country,
-                                                  );
-                                            },
-                                          );
-                                        },
-                                        child: Container(
-                                          width: 60.w,
-                                          height: 48.h,
-                                          decoration: BoxDecoration(
-                                            color:
-                                                Get
-                                                    .theme
-                                                    .colorScheme
-                                                    .onSecondaryContainer,
-                                            borderRadius: BorderRadius.circular(
-                                              UIConstants.radius12,
-                                            ),
-                                          ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                selectedCountry.flagEmoji,
-                                                style: TextStyle(
-                                                  fontSize: 20.sp,
-                                                ),
-                                              ),
-                                            ],
+                                                .updateSelectedMajor(major);
+                                            Get.close(1);
+                                          },
+                                          child: CustomTextWidget(
+                                            text: major.arName ?? '',
                                           ),
                                         ),
                                       );
-                                    }),
-                                    Gap(10.w),
-                                    Expanded(
-                                      child: TextWithTextField(
-                                        text: "phoneNumber",
-                                        hintText: "phoneNumber",
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
+                            child: AbsorbPointer(
+                              absorbing: true,
+                              child: AuthTextFieldWidget(
+                                title: selectedProgram != null
+                                    ? (selectedProgram.arName ?? "chooseYourStudyStage")
+                                    : "chooseYourStudyStage",
+                                prefixIcon: const Icon(
+                                  Icons.school_outlined,
+                                  color: Colors.grey,
+                                ),
+                                keyboardType: TextInputType.none,
+                                controller: TextEditingController(
+                                  text: selectedProgram?.arName ?? "",
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                        const SizedBox(height: 14),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Obx(() {
+                              final selectedCountry =
+                                  _signupController.selectedCountry.value;
+                              return GestureDetector(
+                                onTap: () {
+                                  showCountryPicker(
+                                    context: context,
+                                    showPhoneCode: false,
+                                    favorite: ['SY', 'TR', 'US', 'LU'],
+                                    countryListTheme: CountryListThemeData(
+                                      bottomSheetHeight: 700.h,
+                                      backgroundColor: Colors.white,
+                                      flagSize: 25.sp,
+                                      borderRadius: BorderRadius.circular(18.r),
+                                      textStyle: TextStyle(fontSize: 16.sp),
+                                      inputDecoration: InputDecoration(
+                                        hintText: 'Search'.tr(),
+                                        hintStyle: TextStyle(
+                                          color: Get
+                                              .theme
+                                              .colorScheme
+                                              .inverseSurface
+                                              .withOpacity(0.6),
+                                        ),
                                         filled: true,
-                                        hideLabel: true,
-                                        validator:
-                                            (value) => phoneNumberValidator(
-                                              value,
-                                              context,
-                                            ),
                                         fillColor:
-                                            Get
-                                                .theme
-                                                .colorScheme
-                                                .onSecondaryContainer,
-                                        controller: phoneController,
-                                        onFieldSubmitted: (_) {
-                                          FocusScope.of(
-                                            context,
-                                          ).requestFocus(_passwordFocusNode);
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Gap(5.h),
-                            TextWithTextField(
-                              validator:
-                                  (value) => passwordValidator(value, context),
-                              text: "password",
-                              hintText: "password",
-                              filled: true,
-                              fillColor:
-                                  Get.theme.colorScheme.onSecondaryContainer,
-                              boldLabel: true,
-                              controller: _passwordController,
-                              isPass: !_showPass,
-                              focusNode: _passwordFocusNode,
-                              onFieldSubmitted: (_) {
-                                FocusScope.of(
-                                  context,
-                                ).requestFocus(_confirmPasswordFocusNode);
-                              },
-                              suffix: IconButton(
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onPressed: () {
-                                  setState(() {
-                                    _showPass = !_showPass;
-                                  });
-                                },
-                                icon: Icon(
-                                  _showPass
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
-                                  color: SharedColors.greyTextColor,
-                                ),
-                              ),
-                            ),
-                            TextWithTextField(
-                              validator:
-                                  (value) => confirmPasswordValidator(
-                                    value,
-                                    _passwordController.text,
-                                    context,
-                                  ),
-                              text: "confirmPassword",
-                              hintText: "confirmPassword",
-                              filled: true,
-                              fillColor:
-                                  Get.theme.colorScheme.onSecondaryContainer,
-                              boldLabel: true,
-                              controller: _confirmPasswordController,
-                              isPass: !_showConfirmPass,
-                              focusNode: _confirmPasswordFocusNode,
-                              suffix: IconButton(
-                                splashColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onPressed: () {
-                                  setState(() {
-                                    _showConfirmPass = !_showConfirmPass;
-                                  });
-                                },
-                                icon: Icon(
-                                  _showConfirmPass
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
-                                  color: SharedColors.greyTextColor,
-                                ),
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Theme(
-                                  data: ThemeData(
-                                    unselectedWidgetColor:
-                                        Get.theme.colorScheme.tertiaryContainer,
-                                  ),
-                                  child: Obx(() {
-                                    return Checkbox(
-                                      activeColor: Get.theme.primaryColor,
-                                      shape: RoundedRectangleBorder(
-                                        side: BorderSide(
-                                          color:
-                                              Get
-                                                  .theme
-                                                  .colorScheme
-                                                  .tertiaryContainer,
+                                            SharedColors.authTextFieldBgColor,
+                                        contentPadding: EdgeInsets.symmetric(
+                                          horizontal: 16.w,
+                                          vertical: 12.h,
+                                        ),
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            UIConstants.radius12,
+                                          ),
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            UIConstants.radius12,
+                                          ),
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        prefixIcon: Icon(
+                                          Icons.search,
+                                          color: Get
+                                              .theme
+                                              .colorScheme
+                                              .inverseSurface
+                                              .withOpacity(0.6),
                                         ),
                                       ),
-                                      hoverColor: Get.theme.primaryColor,
-                                      value:
-                                          _signupController
-                                              .agreeWithTerms
-                                              .value,
-                                      onChanged: (value) {
-                                        _signupController.agreeWithTerms.value =
-                                            value ?? false;
-                                      },
-                                    );
-                                  }),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CustomTextWidget(
-                                      text: "agreeTo",
-                                      textThemeStyle:
-                                          TextThemeStyleEnum.titleSmall,
-                                      color:
-                                          Theme.of(
-                                            context,
-                                          ).colorScheme.inverseSurface,
                                     ),
-                                    Gap(5.w),
-                                    InkWell(
-                                      onTap: () {
-                                        LaunchUrlService.openWeb(
-                                          context,
-                                          "https://tedreeb.com/pages/terms-and-conditions",
-                                        );
-                                      },
-                                      child: CustomTextWidget(
-                                        text: "termsAndCondition",
-                                        color:
-                                            Theme.of(
-                                              context,
-                                            ).colorScheme.primary,
-                                        textThemeStyle:
-                                            TextThemeStyleEnum.titleSmall,
-                                        decoration: TextDecoration.underline,
-                                        decorationThickness: 0.85,
+                                    onSelect: (Country country) {
+                                      _signupController.updateSelectedCountry(
+                                        country,
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  width: 60.w,
+                                  height: 48.h,
+                                  decoration: BoxDecoration(
+                                    color: SharedColors.authTextFieldBgColor,
+                                    borderRadius: BorderRadius.circular(
+                                      UIConstants.radius12,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        selectedCountry.flagEmoji,
+                                        style: TextStyle(fontSize: 20.sp),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ],
+                              );
+                            }),
+                            Gap(10.w),
+                            Expanded(
+                              child: AuthTextFieldWidget(
+                                numbersOnly: true,
+                                title: "phoneNumber",
+                                prefixIcon: const Icon(
+                                  Icons.phone_outlined,
+                                  color: Colors.grey,
+                                ),
+                                keyboardType: TextInputType.phone,
+                                validator: (value) =>
+                                    phoneNumberValidator(value, context),
+                                controller: phoneController,
+                                onFieldSubmitted: (_) {
+                                  FocusScope.of(context)
+                                      .requestFocus(_passwordFocusNode);
+                                },
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 14),
+                        AuthTextFieldWidget(
+                          title: 'password',
+                          prefixIcon: const Icon(
+                            Icons.lock_outlined,
+                            color: Colors.grey,
+                          ),
+                          keyboardType: TextInputType.text,
+                          isPassword: true,
+                          controller: _passwordController,
+                          validator: (value) =>
+                              passwordValidator(value, context),
+                          focusNode: _passwordFocusNode,
+                          onFieldSubmitted: (_) {
+                            FocusScope.of(context)
+                                .requestFocus(_confirmPasswordFocusNode);
+                          },
+                        ),
+                        const SizedBox(height: 14),
+                        AuthTextFieldWidget(
+                          title: 'confirmPassword',
+                          prefixIcon: const Icon(
+                            Icons.lock_outlined,
+                            color: Colors.grey,
+                          ),
+                          keyboardType: TextInputType.text,
+                          isPassword: true,
+                          controller: _confirmPasswordController,
+                          validator: (value) => confirmPasswordValidator(
+                            value,
+                            _passwordController.text,
+                            context,
+                          ),
+                          focusNode: _confirmPasswordFocusNode,
+                          onFieldSubmitted: (_) {
+                            _signupAction();
+                          },
+                        ),
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            Theme(
+                              data: ThemeData(
+                                unselectedWidgetColor: Colors.grey,
+                              ),
+                              child: Obx(() {
+                                return Checkbox(
+                                  activeColor: SharedColors.authSecondaryColor,
+                                  checkColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  value: _signupController.agreeWithTerms.value,
+                                  onChanged: (value) {
+                                    _signupController.agreeWithTerms.value =
+                                        value ?? false;
+                                  },
+                                );
+                              }),
+                            ),
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "agreeTo".tr(),
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  InkWell(
+                                    onTap: () {
+                                      LaunchUrlService.openWeb(
+                                        context,
+                                        "https://tedreeb.com/pages/terms-and-conditions",
+                                      );
+                                    },
+                                    child: Text(
+                                      "termsAndCondition".tr(),
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: SharedColors.authSecondaryColor,
+                                        decoration: TextDecoration.underline,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        Obx(() {
+                          return ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: SharedColors.authActionColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              minimumSize: const Size(double.infinity, 50),
+                            ),
+                            onPressed: _signupAction,
+                            child: _signupController.isSignupLoading.value
+                                ? LoadingAnimation(
+                                    color: Get.theme.colorScheme.onSurface,
+                                  )
+                                : Text(
+                                    'signup'.tr(),
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                          );
+                        }),
+                        const SizedBox(height: 18),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'alreadyHaveAnAccount'.tr(),
+                              style: const TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            GestureDetector(
+                              onTap: () {
+                                Get.offAllNamed(RoutePaths.login);
+                              },
+                              child: Text(
+                                'login'.tr(),
+                                style: const TextStyle(
+                                  fontSize: 15,
+                                  color: SharedColors.authSecondaryColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        if (_appController.isReviewing.value == false) ...{
+                          SizedBox(height: 12.h),
+                          Row(
+                            children: [
+                              const Expanded(
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: 1,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8.0,
+                                ),
+                                child: Text(
+                                  'OR'.tr(),
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              const Expanded(
+                                child: Divider(
+                                  color: Colors.grey,
+                                  thickness: 1,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 12.h),
+                          SocialButtonWidget(
+                            text: 'Google',
+                            iconPath: AssetPaths.googleSvg,
+                            backgroundColor: SharedColors.authActionColor,
+                            onPressed: () {
+                              // TODO: Implement Google signup
+                            },
+                          ),
+                          SizedBox(height: 12.h),
+                          SocialButtonWidget(
+                            text: 'Facebook'.tr(),
+                            iconPath: AssetPaths.facebook,
+                            backgroundColor: SharedColors.authActionColor,
+                            onPressed: () {
+                              // TODO: Implement Facebook signup
+                            },
+                          ),
+                        },
+                        const SizedBox(height: 20),
+                      ],
+                    ),
                   ),
                 ),
-                Gap(15.h),
-                Obx(() {
-                  return CustomButton(
-                    onPressed: _signupAction,
-                    borderRadius: 25,
-                    width: double.infinity,
-                    elevation: 8,
-                    child:
-                        _signupController.isSignupLoading.value
-                            ? LoadingAnimation(
-                              color: Get.theme.colorScheme.onSurface,
-                            )
-                            : CustomTextWidget(
-                              text: "signup",
-                              color: Get.theme.colorScheme.onSurface,
-                            ),
-                  );
-                }),
-                Gap(20.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const CustomTextWidget(
-                      text: "alreadyHaveAnAccount",
-                      textThemeStyle: TextThemeStyleEnum.bodyMedium,
-                    ),
-                    Gap(5.w),
-                    InkWell(
-                      onTap: () {
-                        Get.offAllNamed(RoutePaths.login);
-                      },
-
-                      child: CustomTextWidget(
-                        text: "login",
-                        color: Theme.of(context).colorScheme.primary,
-                        textThemeStyle: TextThemeStyleEnum.bodyMedium,
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 0.85,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
