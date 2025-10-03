@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "79753737164",
+    "project_id": "tedreeb-480b3",
+    "storage_bucket": "tedreeb-480b3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79753737164:android:21126aca50866bc6b4a369",
+        "android_client_info": {
+          "package_name": "com.tedreeb4edu.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWE89gxDcpHB4JrXd5XZN5qFWF5jiTWSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
