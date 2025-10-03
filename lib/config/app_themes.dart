@@ -37,7 +37,7 @@ class AppThemes {
     shadowColor: AppLightColors.grayColor,
 
     textTheme: TextTheme(
-      labelSmall: GoogleFonts.ibmPlexSansArabic(
+      labelSmall: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 8,
           fontWeight: FontWeight.w400,
@@ -46,7 +46,7 @@ class AppThemes {
           letterSpacing: 0,
         ),
       ),
-      labelMedium: GoogleFonts.ibmPlexSansArabic(
+      labelMedium: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 9,
           fontWeight: FontWeight.w400,
@@ -55,7 +55,7 @@ class AppThemes {
           letterSpacing: 0,
         ),
       ),
-      labelLarge: GoogleFonts.ibmPlexSansArabic(
+      labelLarge: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 10,
           fontWeight: FontWeight.w400,
@@ -64,7 +64,7 @@ class AppThemes {
           letterSpacing: 0,
         ),
       ),
-      bodySmall: GoogleFonts.ibmPlexSansArabic(
+      bodySmall: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 11,
           fontWeight: FontWeight.w400,
@@ -73,7 +73,7 @@ class AppThemes {
           letterSpacing: 0,
         ),
       ),
-      bodyMedium: GoogleFonts.ibmPlexSansArabic(
+      bodyMedium: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w400,
@@ -82,7 +82,7 @@ class AppThemes {
           letterSpacing: 0,
         ),
       ),
-      bodyLarge: GoogleFonts.ibmPlexSansArabic(
+      bodyLarge: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w400,
@@ -91,7 +91,7 @@ class AppThemes {
           letterSpacing: 0,
         ),
       ),
-      titleSmall: GoogleFonts.ibmPlexSansArabic(
+      titleSmall: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w400,
@@ -99,7 +99,7 @@ class AppThemes {
           height: 0.0.h,
         ),
       ),
-      titleMedium: GoogleFonts.ibmPlexSansArabic(
+      titleMedium: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w400,
@@ -107,7 +107,7 @@ class AppThemes {
           height: 0.0.h,
         ),
       ),
-      titleLarge: GoogleFonts.ibmPlexSansArabic(
+      titleLarge: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
@@ -115,7 +115,7 @@ class AppThemes {
           height: 0.h,
         ),
       ),
-      displayMedium: GoogleFonts.ibmPlexSansArabic(
+      displayMedium: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w700,
@@ -123,7 +123,7 @@ class AppThemes {
           height: 0.0.h,
         ),
       ),
-      displayLarge: GoogleFonts.ibmPlexSansArabic(
+      displayLarge: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
@@ -131,7 +131,7 @@ class AppThemes {
           height: 0.0.h,
         ),
       ),
-      headlineSmall: GoogleFonts.ibmPlexSansArabic(
+      headlineSmall: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w600,
@@ -139,7 +139,7 @@ class AppThemes {
           height: 0.0.h,
         ),
       ),
-      headlineMedium: GoogleFonts.ibmPlexSansArabic(
+      headlineMedium: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 22,
           fontWeight: FontWeight.w700,
@@ -147,7 +147,7 @@ class AppThemes {
           height: 0.0.h,
         ),
       ),
-      headlineLarge: GoogleFonts.ibmPlexSansArabic(
+      headlineLarge: GoogleFonts.cairo(
         textStyle: TextStyle(
           fontSize: 28,
           fontWeight: FontWeight.w600,

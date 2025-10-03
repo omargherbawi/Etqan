@@ -172,16 +172,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'fillYourInformationBelowToRegister'.tr(),
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 16),
+                        SizedBox(height: 8.h),
                         AuthTextFieldWidget(
                           title: "name",
                           prefixIcon: const Icon(
@@ -190,7 +181,8 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                           ),
                           keyboardType: TextInputType.text,
                           controller: _fullNameController,
-                          validator: (value) => isNotEmpty(value ?? "", context),
+                          validator:
+                              (value) => isNotEmpty(value ?? "", context),
                         ),
                         const SizedBox(height: 14),
                         Obx(() {
@@ -231,9 +223,11 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                             child: AbsorbPointer(
                               absorbing: true,
                               child: AuthTextFieldWidget(
-                                title: selectedProgram != null
-                                    ? (selectedProgram.arName ?? "chooseYourStudyStage")
-                                    : "chooseYourStudyStage",
+                                title:
+                                    selectedProgram != null
+                                        ? (selectedProgram.arName ??
+                                            "chooseYourStudyStage")
+                                        : "chooseYourStudyStage",
                                 prefixIcon: const Icon(
                                   Icons.school_outlined,
                                   color: Colors.grey,
@@ -258,7 +252,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                                   showCountryPicker(
                                     context: context,
                                     showPhoneCode: false,
-                                    favorite: ['SY', 'TR', 'US', 'LU'],
+
                                     countryListTheme: CountryListThemeData(
                                       bottomSheetHeight: 700.h,
                                       backgroundColor: Colors.white,
@@ -276,7 +270,10 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                                         ),
                                         filled: true,
                                         fillColor:
-                                            SharedColors.authTextFieldBgColor,
+                                            Get
+                                                .theme
+                                                .colorScheme
+                                                .onSecondaryContainer,
                                         contentPadding: EdgeInsets.symmetric(
                                           horizontal: 16.w,
                                           vertical: 12.h,
@@ -341,12 +338,14 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                                   color: Colors.grey,
                                 ),
                                 keyboardType: TextInputType.phone,
-                                validator: (value) =>
-                                    phoneNumberValidator(value, context),
+                                validator:
+                                    (value) =>
+                                        phoneNumberValidator(value, context),
                                 controller: phoneController,
                                 onFieldSubmitted: (_) {
-                                  FocusScope.of(context)
-                                      .requestFocus(_passwordFocusNode);
+                                  FocusScope.of(
+                                    context,
+                                  ).requestFocus(_passwordFocusNode);
                                 },
                               ),
                             ),
@@ -362,12 +361,13 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                           keyboardType: TextInputType.text,
                           isPassword: true,
                           controller: _passwordController,
-                          validator: (value) =>
-                              passwordValidator(value, context),
+                          validator:
+                              (value) => passwordValidator(value, context),
                           focusNode: _passwordFocusNode,
                           onFieldSubmitted: (_) {
-                            FocusScope.of(context)
-                                .requestFocus(_confirmPasswordFocusNode);
+                            FocusScope.of(
+                              context,
+                            ).requestFocus(_confirmPasswordFocusNode);
                           },
                         ),
                         const SizedBox(height: 14),
@@ -380,11 +380,12 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                           keyboardType: TextInputType.text,
                           isPassword: true,
                           controller: _confirmPasswordController,
-                          validator: (value) => confirmPasswordValidator(
-                            value,
-                            _passwordController.text,
-                            context,
-                          ),
+                          validator:
+                              (value) => confirmPasswordValidator(
+                                value,
+                                _passwordController.text,
+                                context,
+                              ),
                           focusNode: _confirmPasswordFocusNode,
                           onFieldSubmitted: (_) {
                             _signupAction();
@@ -399,16 +400,46 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                               ),
                               child: Obx(() {
                                 return Checkbox(
-                                  activeColor: SharedColors.authSecondaryColor,
-                                  checkColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
                                   value: _signupController.agreeWithTerms.value,
                                   onChanged: (value) {
                                     _signupController.agreeWithTerms.value =
                                         value ?? false;
                                   },
+                                  activeColor:
+                                      SharedColors
+                                          .authSecondaryColor, // اللون لما يكون checked
+                                  checkColor: Colors.white, // لون الصح
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  side: MaterialStateBorderSide.resolveWith(
+                                    (states) {
+                                      if (states.contains(
+                                        MaterialState.selected,
+                                      )) {
+                                        return BorderSide(
+                                          color: SharedColors.authSecondaryColor,
+                                          width: 2,
+                                        ); // حدود لما يكون checked
+                                      }
+                                      return BorderSide(
+                                        color: Colors.white,
+                                        width: 2,
+                                      ); // حدود أبيض لما يكون unchecked
+                                    },
+                                  ),
+                                  fillColor: MaterialStateProperty.resolveWith<
+                                    Color
+                                  >((states) {
+                                    if (states.contains(
+                                      MaterialState.selected,
+                                    )) {
+                                      return SharedColors
+                                          .authSecondaryColor; // خلفية لما يكون checked
+                                    }
+                                    return Colors
+                                        .transparent; // من جوّا فاضي لما يكون unchecked
+                                  }),
                                 );
                               }),
                             ),
@@ -456,17 +487,18 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                               minimumSize: const Size(double.infinity, 50),
                             ),
                             onPressed: _signupAction,
-                            child: _signupController.isSignupLoading.value
-                                ? LoadingAnimation(
-                                    color: Get.theme.colorScheme.onSurface,
-                                  )
-                                : Text(
-                                    'signup'.tr(),
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
+                            child:
+                                _signupController.isSignupLoading.value
+                                    ? LoadingAnimation(
+                                      color: Get.theme.colorScheme.onSurface,
+                                    )
+                                    : Text(
+                                      'signup'.tr(),
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                      ),
                                     ),
-                                  ),
                           );
                         }),
                         const SizedBox(height: 18),

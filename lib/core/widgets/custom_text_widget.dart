@@ -104,7 +104,7 @@ class CustomTextWidget extends StatelessWidget {
     }
 
     // Always use Cairo font
-    final cairoStyle = GoogleFonts.ibmPlexSansArabic(
+    final cairoStyle = GoogleFonts.cairo(
       textStyle: baseStyle.copyWith(
         fontSize: fontSize?.sp ?? baseStyle.fontSize?.sp,
         fontWeight: fontWeight ?? baseStyle.fontWeight,

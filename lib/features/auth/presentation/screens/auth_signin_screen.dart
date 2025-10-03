@@ -122,7 +122,6 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                                   showCountryPicker(
                                     context: context,
                                     showPhoneCode: false,
-                                    favorite: ['SY', 'TR', 'US', 'LU'],
                                     countryListTheme: CountryListThemeData(
                                       bottomSheetHeight: 700.h,
                                       backgroundColor: Colors.white,
@@ -140,7 +139,10 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                                         ),
                                         filled: true,
                                         fillColor:
-                                            SharedColors.authTextFieldBgColor,
+                                            Get
+                                                .theme
+                                                .colorScheme
+                                                .onSecondaryContainer,
                                         contentPadding: EdgeInsets.symmetric(
                                           horizontal: 16.w,
                                           vertical: 12.h,
