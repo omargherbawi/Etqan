@@ -11,7 +11,6 @@ import 'package:tedreeb_edu_app/core/core.dart';
 import 'package:tedreeb_edu_app/core/routes/route_paths.dart';
 import 'package:tedreeb_edu_app/features/categories/presentation/controllers/filter_courses_controller.dart';
 import 'package:tedreeb_edu_app/features/courses/presentation/controllers/free_classes_controller.dart';
-import 'package:tedreeb_edu_app/features/courses/presentation/screens/free_classes_screen.dart';
 import 'package:tedreeb_edu_app/features/courses/presentation/screens/paid_classes_screen.dart';
 import 'package:tedreeb_edu_app/features/home/presentation/shimmers/home_loading_shimmer.dart';
 import 'package:tedreeb_edu_app/features/home/presentation/widgets/home_courses_widget_courses_build.dart';
@@ -69,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                               textThemeStyle: TextThemeStyleEnum.displayLarge,
                             ),
                           ),
-                          Gap(8.h),
+                          Gap(20.h),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -80,6 +79,7 @@ class HomeScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w400,
                                 textThemeStyle: TextThemeStyleEnum.titleLarge,
                                 fontSize: 28.sp,
+                                height: 1,
                               ),
                               Row(
                                 children: [
@@ -176,26 +176,25 @@ class _HomeScreenBodyContent extends StatelessWidget {
               },
               Gap(8.h),
 
-              if (sharedCoursesController.freeCoursesClasses.isNotEmpty) ...{
-                TopHeadingRowBuild(
-                  heading: "freeClasses",
-                  buttonText: "viewAll",
-                  onTap: () {
-                    Get.lazyPut(() => FilterCoursesController());
-                    Get.lazyPut(() => UserCourseController());
+              // if (sharedCoursesController.freeCoursesClasses.isNotEmpty) ...{
+              //   TopHeadingRowBuild(
+              //     heading: "freeClasses",
+              //     buttonText: "viewAll",
+              //     onTap: () {
+              //       Get.lazyPut(() => FilterCoursesController());
+              //       Get.lazyPut(() => UserCourseController());
 
-                    final FreeClassesController bestSellerCoursesController =
-                        Get.put(FreeClassesController());
-                    bestSellerCoursesController.free.value = true;
+              //       final FreeClassesController bestSellerCoursesController =
+              //           Get.put(FreeClassesController());
+              //       bestSellerCoursesController.free.value = true;
 
-                    Get.to(() => const FreeClassesScreen());
-                  },
-                ),
-                HomeCoursesBuild(
-                  courses: sharedCoursesController.freeCoursesClasses,
-                ),
-              },
-
+              //       Get.to(() => const FreeClassesScreen());
+              //     },
+              //   ),
+              //   HomeCoursesBuild(
+              //     courses: sharedCoursesController.freeCoursesClasses,
+              //   ),
+              // },
               if (Platform.isAndroid &&
                   sharedCoursesController.packages.isNotEmpty) ...{
                 TopHeadingRowBuild(
