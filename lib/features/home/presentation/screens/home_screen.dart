@@ -148,7 +148,7 @@ class _HomeScreenBodyContent extends StatelessWidget {
                     if (lastCourseController.lastOpenedCourse.value !=
                         null) ...{
                       const CourseInLearningBuild(),
-                      Gap(16.h),
+                      Gap(8.h),
                     },
                   ],
                 );

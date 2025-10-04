@@ -43,154 +43,118 @@ class CustomCourseContainer extends StatelessWidget {
                   ? Border.all(color: Get.theme.colorScheme.surface)
                   : null,
         ),
-        child: Stack(
-          clipBehavior: Clip.none,
+        child: Row(
           children: [
-            Row(
-              children: [
-                Container(
-                  height: 90.h,
-                  width: 108.h,
-                  decoration: BoxDecoration(
-                    color: Get.theme.colorScheme.primaryContainer,
-                    borderRadius: BorderRadius.circular(UIConstants.radius8),
-                  ),
-                  child: CustomCachedImage(
-                    image: course.image ?? "",
-                    fit: BoxFit.fill,
+            SizedBox(
+              height: 90.h,
+              width: 90.h,
+
+              child: CustomCachedImage(
+                borderRadius: BorderRadius.circular(14),
+                image: course.image ?? "",
+                fit: BoxFit.fill,
+              ),
+
+              // ),
+            ),
+            Gap(10.w),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // if (onFavoriteBtnTap == null)
+                  //   showRating
+                  //       ? Row(
+                  //         children: [
+                  //           Icon(
+                  //             Icons.star,
+                  //             size: 14.sp,
+                  //             color: AppLightColors.orangeColor,
+                  //           ),
+                  //           Gap(5.w),
+                  //           CustomTextWidget(
+                  //             text: course.rate ?? "",
+                  //             maxLines: 1,
+                  //             textAlign: TextAlign.center,
+                  //             textThemeStyle: TextThemeStyleEnum.titleSmall,
+                  //             fontWeight: FontWeight.w500,
+                  //             color:
+                  //                 Get.theme.colorScheme.tertiaryContainer,
+                  //           ),
+                  //         ],
+                  //       )
+                  //       : const SizedBox.shrink(),
+                  // Gap(5.h),
+                  CustomTextWidget(
+                    text: "${course.title}",
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                    textThemeStyle: TextThemeStyleEnum.titleSmall,
+                    fontWeight: FontWeight.w500,
+                    color: Get.theme.colorScheme.inverseSurface,
                   ),
 
-                  // ),
-                ),
-                Gap(10.w),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  CustomTextWidget(
+                    text: course.classSemester ?? '',
+                    textThemeStyle: TextThemeStyleEnum.bodyMedium,
+                    maxLines: 1,
+                  ),
+                  Gap(3.h),
+                  Row(
                     children: [
-                      if (onFavoriteBtnTap == null)
-                        showRating
-                            ? Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  size: 14.sp,
-                                  color: AppLightColors.orangeColor,
-                                ),
-                                Gap(5.w),
-                                CustomTextWidget(
-                                  text: course.rate ?? "",
-                                  maxLines: 1,
-                                  textAlign: TextAlign.center,
-                                  textThemeStyle: TextThemeStyleEnum.titleSmall,
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      Get.theme.colorScheme.tertiaryContainer,
-                                ),
-                              ],
-                            )
-                            : const SizedBox.shrink(),
-                      Gap(5.h),
-                      CustomTextWidget(
-                        text: "${course.title}",
-                        maxLines: 1,
-                        textAlign: TextAlign.center,
-                        textThemeStyle: TextThemeStyleEnum.titleSmall,
-                        fontWeight: FontWeight.w500,
-                        color: Get.theme.colorScheme.inverseSurface,
+                      IconAndValueRowBuild(
+                        svg: AssetPaths.personGrey,
+                        value: course.teacher?.fullName ?? "",
                       ),
+                      Gap(30.w),
+                      if (currentUserController.user?.roleName ==
+                          "teacher") ...{
+                        IconAndValueRowBuild(
+                          icon: Icons.diversity_3,
+                          value: course.studentsCount?.toString() ?? "",
+                        ),
+                      },
 
-                      CustomTextWidget(
-                        text: course.classSemester ?? '',
-                        textThemeStyle: TextThemeStyleEnum.bodyMedium,
-                        maxLines: 1,
-                      ),
-                      Gap(3.h),
-                      Row(
-                        children: [
-                          IconAndValueRowBuild(
-                            svg: AssetPaths.personGrey,
-                            value: course.teacher?.fullName ?? "",
-                          ),
-                          Gap(30.w),
-                          if (currentUserController.user?.roleName ==
-                              "teacher") ...{
-                            IconAndValueRowBuild(
-                              icon: Icons.diversity_3,
-                              value: course.studentsCount?.toString() ?? "",
-                            ),
-                          },
-
-                          // Icon(
-                          //   Icons.person,
-                          //   size: 14.sp,
-                          //   color: Get.theme.colorScheme.tertiaryContainer,
-                          // ),
-                          // Gap(5.w),
-                          // CustomTextWidget(
-                          //     text: "${teacher?.fullName}",
-                          //     maxLines: 1,
-                          //     textAlign: TextAlign.center,
-                          //     textThemeStyle: TextThemeStyleEnum.labelLarge,
-                          //     color: Get.theme.colorScheme.tertiaryContainer),
-                        ],
-                      ),
-                      // Gap(5.h),
-                      // isOngoing
-                      //     ? ProgressSlider(
-                      //         totalMinutes: (course.progressPercent ?? 0).toDouble(),
-                      //         completedMinutes:
-                      //             (course.duration ?? 0).toDouble(),
-                      //       )
-                      //     : Row(
-                      //         children: [
-                      //           CustomTextWidget(
-                      //             text: course.price == 0
-                      //                 ? "free"
-                      //                 : course.priceString ?? "",
-                      //             maxLines: 1,
-                      //             textAlign: TextAlign.start,
-                      //             textThemeStyle: TextThemeStyleEnum.titleSmall,
-                      //             fontWeight: FontWeight.w500,
-                      //             color: Get.theme.primaryColor,
-                      //           ),
-                      //           const Spacer(),
-                      //           getBadge(course),
-                      //         ],
-                      //       ),
+                      // Icon(
+                      //   Icons.person,
+                      //   size: 14.sp,
+                      //   color: Get.theme.colorScheme.tertiaryContainer,
+                      // ),
+                      // Gap(5.w),
+                      // CustomTextWidget(
+                      //     text: "${teacher?.fullName}",
+                      //     maxLines: 1,
+                      //     textAlign: TextAlign.center,
+                      //     textThemeStyle: TextThemeStyleEnum.labelLarge,
+                      //     color: Get.theme.colorScheme.tertiaryContainer),
                     ],
                   ),
-                ),
-              ],
-            ),
-            Positioned.directional(
-              start: -20.w,
-              bottom: -25.h,
-              textDirection:
-                  Get.locale?.languageCode == "ar"
-                      ? TextDirection.rtl
-                      : TextDirection.ltr,
-              child:
-                  onFavoriteBtnTap == null
-                      ? const SizedBox.shrink()
-                      : GestureDetector(
-                        onTap: onFavoriteBtnTap,
-                        behavior: HitTestBehavior.translucent,
-                        child: SizedBox(
-                          width: 54.w,
-                          height: 54.w,
-                          child: CircleIconButton(
-                            iconSize: 28.sp,
-                            onPressed: onFavoriteBtnTap,
-                            icon:
-                                isFavorite
-                                    ? Icons.bookmark
-                                    : Icons.bookmark_border,
-                            iconColor: Get.theme.primaryColor,
-                            greyBorder: true,
-                          ),
-                        ),
-                      ),
+                  // Gap(5.h),
+                  // isOngoing
+                  //     ? ProgressSlider(
+                  //         totalMinutes: (course.progressPercent ?? 0).toDouble(),
+                  //         completedMinutes:
+                  //             (course.duration ?? 0).toDouble(),
+                  //       )
+                  //     : Row(
+                  //         children: [
+                  //           CustomTextWidget(
+                  //             text: course.price == 0
+                  //                 ? "free"
+                  //                 : course.priceString ?? "",
+                  //             maxLines: 1,
+                  //             textAlign: TextAlign.start,
+                  //             textThemeStyle: TextThemeStyleEnum.titleSmall,
+                  //             fontWeight: FontWeight.w500,
+                  //             color: Get.theme.primaryColor,
+                  //           ),
+                  //           const Spacer(),
+                  //           getBadge(course),
+                  //         ],
+                  //       ),
+                ],
+              ),
             ),
           ],
         ),
