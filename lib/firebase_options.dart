@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -50,19 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCWE89gxDcpHB4JrXd5XZN5qFWF5jiTWSI',
-    appId: '1:79753737164:android:21126aca50866bc6b4a369',
-    messagingSenderId: '79753737164',
-    projectId: 'tedreeb-480b3',
-    storageBucket: 'tedreeb-480b3.firebasestorage.app',
+    apiKey: 'AIzaSyAKkwtoCHSIqqpgBZ7pl2J22r-nbI5t5cs',
+    appId: '1:339385233809:android:361a488c389b48975caa30',
+    messagingSenderId: '339385233809',
+    projectId: 'etqan-fd4d3',
+    storageBucket: 'etqan-fd4d3.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBP1UzrWtSgzXd5QCYds7Bp1B95t3T6eoU',
-    appId: '1:79753737164:ios:863fc9d5014e5c34b4a369',
-    messagingSenderId: '79753737164',
-    projectId: 'tedreeb-480b3',
-    storageBucket: 'tedreeb-480b3.firebasestorage.app',
+    apiKey: 'AIzaSyB7dZFeL9onTa50JzSw1DYsp40OaBKnWrU',
+    appId: '1:339385233809:ios:57ea1d8beccd5a895caa30',
+    messagingSenderId: '339385233809',
+    projectId: 'etqan-fd4d3',
+    storageBucket: 'etqan-fd4d3.firebasestorage.app',
     iosBundleId: 'com.tedreeb4edu.app',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBczYqgAD12gvasmNn1Q_3-8F15MckBI4s',
+    appId: '1:339385233809:web:45201367ce86362f5caa30',
+    messagingSenderId: '339385233809',
+    projectId: 'etqan-fd4d3',
+    authDomain: 'etqan-fd4d3.firebaseapp.com',
+    storageBucket: 'etqan-fd4d3.firebasestorage.app',
+    measurementId: 'G-GNBD96JEK4',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyB7dZFeL9onTa50JzSw1DYsp40OaBKnWrU',
+    appId: '1:339385233809:ios:5b276a3071de9ff25caa30',
+    messagingSenderId: '339385233809',
+    projectId: 'etqan-fd4d3',
+    storageBucket: 'etqan-fd4d3.firebasestorage.app',
+    iosBundleId: 'com.asas4edu.net.app',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBczYqgAD12gvasmNn1Q_3-8F15MckBI4s',
+    appId: '1:339385233809:web:0100b780075bff8f5caa30',
+    messagingSenderId: '339385233809',
+    projectId: 'etqan-fd4d3',
+    authDomain: 'etqan-fd4d3.firebaseapp.com',
+    storageBucket: 'etqan-fd4d3.firebasestorage.app',
+    measurementId: 'G-PQ5F3GY9SM',
+  );
+
 }
