@@ -33,7 +33,7 @@ class ForceUpdateDialog extends StatelessWidget {
 
     late final Uri url;
     if (kIsWeb) {
-      url = Uri.parse("https://etqan.com/");
+      url = Uri.parse("https://tedreeb.com/");
     } else if (Platform.isAndroid) {
       final isHuawei = await _isHuaweiDevice();
       if (isHuawei) {
@@ -46,9 +46,9 @@ class ForceUpdateDialog extends StatelessWidget {
     } else if (Platform.isIOS) {
       url = Uri.parse("https://apps.apple.com/jo/app/etqan/id6749356804");
     } else if (Platform.isMacOS || Platform.isWindows) {
-      url = Uri.parse("https://etqan.com/my-app-promo/");
+      url = Uri.parse("https://tedreeb.com/my-app-promo/");
     } else {
-      url = Uri.parse("https://etqan.com/");
+      url = Uri.parse("https://tedreeb.com/");
     }
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
       throw Exception("Could not launch store link");

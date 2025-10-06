@@ -119,7 +119,7 @@ class AccountScreen extends StatelessWidget {
                 onTap: () {
                   LaunchUrlService.openWeb(
                     context,
-                    "https://etqan.com/pages/about",
+                    "https://tedreeb.com/pages/about",
                   );
                 },
               ),
@@ -130,7 +130,7 @@ class AccountScreen extends StatelessWidget {
                 onTap: () {
                   LaunchUrlService.openWeb(
                     context,
-                    "https://etqan.com/pages/privacy-policy",
+                    "https://tedreeb.com/pages/privacy-policy",
                   );
                 },
               ),

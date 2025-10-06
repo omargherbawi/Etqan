@@ -337,7 +337,8 @@ class FilesScreen extends StatelessWidget {
                                         file.fileType != "pdf")
                                       return;
 
-                                    final url = "https://etqan.com${file.file}";
+                                    final url =
+                                        "https://tedreeb.com${file.file}";
                                     final fileName =
                                         (file.translations?[0].title ?? 'file')
                                             .replaceAll(" ", "_");

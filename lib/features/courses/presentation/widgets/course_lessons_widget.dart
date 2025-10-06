@@ -28,7 +28,7 @@ class CourseLessonsWidget extends StatefulWidget {
 }
 
 class _CourseLessonsWidgetState extends State<CourseLessonsWidget> {
-  final baseUrl = "https://etqan.com";
+  final baseUrl = "https://tedreeb.com";
 
   final currentVideoController = Get.find<CurrentVideoController>();
 
