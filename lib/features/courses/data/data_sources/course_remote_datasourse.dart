@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/core/services/analytics.service.dart';
-import 'package:tedreeb_edu_app/core/utils/console_log_functions.dart';
+import 'package:etqan_edu_app/core/services/analytics.service.dart';
+import 'package:etqan_edu_app/core/utils/console_log_functions.dart';
 
 import '../../../../config/api_paths.dart';
 import '../../../../core/errors/failure.dart';

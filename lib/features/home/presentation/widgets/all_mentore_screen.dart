@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/features/courses/presentation/widgets/mentor_tile_widget.dart';
+import 'package:etqan_edu_app/features/courses/presentation/widgets/mentor_tile_widget.dart';
 
 import '../../../../core/utils/instructor_utils.dart';
 import '../../../../core/utils/shared.dart';

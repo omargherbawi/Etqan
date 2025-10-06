@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/features/shared/data/models/notification_model.dart';
+import 'package:etqan_edu_app/features/shared/data/models/notification_model.dart';
 import '../../../../core/core.dart';
 import '../../../../core/utils/console_log_functions.dart';
 

@@ -30,7 +30,7 @@ class InAppPurchasesController extends GetxController {
     final arguments = Get.arguments as Map<String, dynamic>;
     logger.d("arguments: $arguments");
     courseId = arguments["id"] as int;
-    const Set<String> kIds = <String>{'course_1', 'com.tedreeb.app.Lifetime'};
+    const Set<String> kIds = <String>{'course_1', 'com.etqan.app.Lifetime'};
     final ProductDetailsResponse response = await InAppPurchase.instance
         .queryProductDetails(kIds);
     // if (response.notFoundIDs.isNotEmpty) {

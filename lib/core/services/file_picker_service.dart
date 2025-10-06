@@ -8,9 +8,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:tedreeb_edu_app/config/app_colors.dart';
-import 'package:tedreeb_edu_app/core/core.dart';
-import 'package:tedreeb_edu_app/core/validators/file_validation.dart';
+import 'package:etqan_edu_app/config/app_colors.dart';
+import 'package:etqan_edu_app/core/core.dart';
+import 'package:etqan_edu_app/core/validators/file_validation.dart';
 
 class FilesPickerService {
   static final ImagePicker _imagePicker = ImagePicker();

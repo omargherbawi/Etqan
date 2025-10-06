@@ -239,20 +239,20 @@ class _AccountEditScreenState extends State<AccountEditScreen> {
 // import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:get/get.dart';
-// import 'package:tedreeb_edu_app/core/enums/text_style_enum.dart';
-// import 'package:tedreeb_edu_app/core/routes/route_paths.dart';
-// import 'package:tedreeb_edu_app/core/utils/shared.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_appbar.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_button.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_text_widget.dart';
-// import 'package:tedreeb_edu_app/core/widgets/loader.dart';
-// import 'package:tedreeb_edu_app/core/widgets/text_with_text_field.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/controllers/edit_account_controller.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/screens/account_select_country.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/widgets/account_birthday_selection.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/widgets/account_gender_selection.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/widgets/avatar_picker_widget.dart';
-// import 'package:tedreeb_edu_app/features/shared/presentation/controllers/current_user_controller.dart';
+// import 'package:etqan_edu_app/core/enums/text_style_enum.dart';
+// import 'package:etqan_edu_app/core/routes/route_paths.dart';
+// import 'package:etqan_edu_app/core/utils/shared.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_appbar.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_button.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_text_widget.dart';
+// import 'package:etqan_edu_app/core/widgets/loader.dart';
+// import 'package:etqan_edu_app/core/widgets/text_with_text_field.dart';
+// import 'package:etqan_edu_app/features/account/presentation/controllers/edit_account_controller.dart';
+// import 'package:etqan_edu_app/features/account/presentation/screens/account_select_country.dart';
+// import 'package:etqan_edu_app/features/account/presentation/widgets/account_birthday_selection.dart';
+// import 'package:etqan_edu_app/features/account/presentation/widgets/account_gender_selection.dart';
+// import 'package:etqan_edu_app/features/account/presentation/widgets/avatar_picker_widget.dart';
+// import 'package:etqan_edu_app/features/shared/presentation/controllers/current_user_controller.dart';
 //
 // class AccountEditScreen extends StatefulWidget {
 //   const AccountEditScreen({super.key});

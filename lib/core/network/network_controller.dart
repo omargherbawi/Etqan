@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:tedreeb_edu_app/core/utils/toast_utils.dart';
+import 'package:etqan_edu_app/core/utils/toast_utils.dart';
 
 class NetworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();

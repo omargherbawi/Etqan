@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:image_picker/image_picker.dart';
-import 'package:tedreeb_edu_app/config/app_colors.dart';
+import 'package:etqan_edu_app/config/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/routes/route_paths.dart';
 import '../../../../core/widgets/custom_image.dart';
@@ -509,10 +509,7 @@ class _CourseForumTapState extends State<CourseForumTap> {
                   SizedBox(height: 2.h),
                   Text(
                     fileExtension,
-                    style: TextStyle(
-                      fontSize: 11.sp,
-                      color: Colors.grey[600],
-                    ),
+                    style: TextStyle(fontSize: 11.sp, color: Colors.grey[600]),
                   ),
                 ],
               ),
@@ -529,11 +526,7 @@ class _CourseForumTapState extends State<CourseForumTap> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
-                      Icons.download,
-                      color: Colors.white,
-                      size: 18.sp,
-                    ),
+                    Icon(Icons.download, color: Colors.white, size: 18.sp),
                     SizedBox(width: 4.w),
                     Text(
                       'download'.tr(),

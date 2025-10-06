@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/core/core.dart';
+import 'package:etqan_edu_app/core/core.dart';
 
 class CourseContainerDesign extends StatelessWidget {
   final Widget child;

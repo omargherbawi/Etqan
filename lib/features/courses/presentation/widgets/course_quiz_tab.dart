@@ -1,4 +1,4 @@
-import 'package:tedreeb_edu_app/features/courses/data/models/single_course_model.dart';
+import 'package:etqan_edu_app/features/courses/data/models/single_course_model.dart';
 
 import '../../../../core/core.dart';
 import '../controllers/course_detail_controller.dart';

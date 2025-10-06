@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:tedreeb_edu_app/features/shared/data/models/notification_model.dart';
+import 'package:etqan_edu_app/features/shared/data/models/notification_model.dart';
 import '../../../../config/config.dart';
 import '../../../../core/core.dart';
 import '../../../../core/utils/date_utils.dart';

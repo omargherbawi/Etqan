@@ -3,8 +3,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tedreeb_edu_app/config/app_colors.dart';
-import 'package:tedreeb_edu_app/core/core.dart';
+import 'package:etqan_edu_app/config/app_colors.dart';
+import 'package:etqan_edu_app/core/core.dart';
 
 class Badges {
   static Color blue64() => const Color(0xff1F3B64);

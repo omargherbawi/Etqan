@@ -3,16 +3,16 @@
 // import 'package:flutter_svg/svg.dart';
 // import 'package:get/get.dart' hide Trans;
 // import 'package:pinput/pinput.dart';
-// import 'package:tedreeb_edu_app/config/app_colors.dart';
-// import 'package:tedreeb_edu_app/config/asset_paths.dart';
-// import 'package:tedreeb_edu_app/core/enums/text_style_enum.dart';
-// import 'package:tedreeb_edu_app/core/validators/general_validations.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_button.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_form_field.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_rich_text.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_text_widget.dart';
-// import 'package:tedreeb_edu_app/core/widgets/loader.dart';
-// import 'package:tedreeb_edu_app/features/auth/presentation/controllers/reset_password_controller.dart';
+// import 'package:etqan_edu_app/config/app_colors.dart';
+// import 'package:etqan_edu_app/config/asset_paths.dart';
+// import 'package:etqan_edu_app/core/enums/text_style_enum.dart';
+// import 'package:etqan_edu_app/core/validators/general_validations.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_button.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_form_field.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_rich_text.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_text_widget.dart';
+// import 'package:etqan_edu_app/core/widgets/loader.dart';
+// import 'package:etqan_edu_app/features/auth/presentation/controllers/reset_password_controller.dart';
 //
 // class ForgotPasswordWidget extends StatefulWidget {
 //   const ForgotPasswordWidget({super.key});

@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:tedreeb_edu_app/core/services/hive_services.dart';
-import 'package:tedreeb_edu_app/core/utils/console_log_functions.dart';
-import 'package:tedreeb_edu_app/features/shared/data/datasources/shared_remote_datasources.dart';
+import 'package:etqan_edu_app/core/services/hive_services.dart';
+import 'package:etqan_edu_app/core/utils/console_log_functions.dart';
+import 'package:etqan_edu_app/features/shared/data/datasources/shared_remote_datasources.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';

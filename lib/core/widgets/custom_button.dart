@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/config/app_colors.dart';
+import 'package:etqan_edu_app/config/app_colors.dart';
 
 import '../enums/text_style_enum.dart';
 import '../utils/shared.dart';

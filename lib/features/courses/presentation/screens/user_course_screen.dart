@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/config/app_colors.dart';
+import 'package:etqan_edu_app/config/app_colors.dart';
 import '../../../../core/core.dart';
 
 import '../controllers/user_course_controller.dart';

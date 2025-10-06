@@ -1,4 +1,4 @@
-// import 'package:tedreeb_edu_app/core/utils/console_log_functions.dart';
+// import 'package:etqan_edu_app/core/utils/console_log_functions.dart';
 // import 'package:geolocator/geolocator.dart';
 // import 'package:geocoding/geocoding.dart';
 

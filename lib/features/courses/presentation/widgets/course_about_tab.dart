@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/features/courses/presentation/widgets/mentor_tile_widget.dart'
+import 'package:etqan_edu_app/features/courses/presentation/widgets/mentor_tile_widget.dart'
     show MentorTileWidget;
 import '../../../../core/core.dart';
 import '../../../../core/utils/console_log_functions.dart';

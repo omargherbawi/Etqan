@@ -19,7 +19,7 @@ class HlsVideoPlayer extends StatefulWidget {
     super.key,
     required this.videoUrl,
     required this.videoIframe,
-    this.referer = "https://tedreeb.com",
+    this.referer = "https://etqan.com",
   });
 
   @override

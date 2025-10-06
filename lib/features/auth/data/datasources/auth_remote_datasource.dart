@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter_udid/flutter_udid.dart';
-import 'package:tedreeb_edu_app/core/services/notification_service.dart';
-import 'package:tedreeb_edu_app/features/account/data/models/profile_model.dart';
+import 'package:etqan_edu_app/core/services/notification_service.dart';
+import 'package:etqan_edu_app/features/account/data/models/profile_model.dart';
 
 import '../../../../core/function/get_device_name.dart';
 import '../../../../core/services/analytics.service.dart';

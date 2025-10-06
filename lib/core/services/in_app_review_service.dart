@@ -1,9 +1,9 @@
 // import 'package:get/get.dart';
 // import 'package:in_app_review/in_app_review.dart';
-// import 'package:tedreeb_edu_app/core/services/hive_services.dart';
+// import 'package:etqan_edu_app/core/services/hive_services.dart';
 // import 'dart:async';
 
-// import 'package:tedreeb_edu_app/core/utils/prints.dart';
+// import 'package:etqan_edu_app/core/utils/prints.dart';
 
 // class InAppReviewService extends GetxController {
 //   final InAppReview inAppReview = InAppReview.instance;

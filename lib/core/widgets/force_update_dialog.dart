@@ -33,22 +33,22 @@ class ForceUpdateDialog extends StatelessWidget {
 
     late final Uri url;
     if (kIsWeb) {
-      url = Uri.parse("https://tedreeb.com/");
+      url = Uri.parse("https://etqan.com/");
     } else if (Platform.isAndroid) {
       final isHuawei = await _isHuaweiDevice();
       if (isHuawei) {
         url = Uri.parse("https://appgallery.huawei.com/app/C114824251");
       } else {
         url = Uri.parse(
-          "https://play.google.com/store/apps/details?id=com.tedreeb4edu.app",
+          "https://play.google.com/store/apps/details?id=com.etqan4edu.app",
         );
       }
     } else if (Platform.isIOS) {
-      url = Uri.parse("https://apps.apple.com/jo/app/tedreeb/id6749356804");
+      url = Uri.parse("https://apps.apple.com/jo/app/etqan/id6749356804");
     } else if (Platform.isMacOS || Platform.isWindows) {
-      url = Uri.parse("https://tedreeb.com/my-app-promo/");
+      url = Uri.parse("https://etqan.com/my-app-promo/");
     } else {
-      url = Uri.parse("https://tedreeb.com/");
+      url = Uri.parse("https://etqan.com/");
     }
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
       throw Exception("Could not launch store link");

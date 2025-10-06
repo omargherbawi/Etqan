@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:tedreeb_edu_app/core/utils/regex_patterns.dart';
+import 'package:etqan_edu_app/core/utils/regex_patterns.dart';
 
 String? emailValidator(String? value, BuildContext context) {
   RegExp emailRegex = RegExp(RegexPatterns.emailPattern);

@@ -1,17 +1,17 @@
 import 'dart:developer';
 
-import 'package:tedreeb_edu_app/features/auth/data/models/governorate_model.dart';
-import 'package:tedreeb_edu_app/features/auth/data/models/major_model.dart';
-import 'package:tedreeb_edu_app/features/auth/data/models/province_model.dart';
-import 'package:tedreeb_edu_app/features/auth/data/models/subject_model.dart';
+import 'package:etqan_edu_app/features/auth/data/models/governorate_model.dart';
+import 'package:etqan_edu_app/features/auth/data/models/major_model.dart';
+import 'package:etqan_edu_app/features/auth/data/models/province_model.dart';
+import 'package:etqan_edu_app/features/auth/data/models/subject_model.dart';
 import 'package:country_picker/country_picker.dart' as country_picker;
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/config/notification.dart';
-import 'package:tedreeb_edu_app/core/routes/route_paths.dart';
-// import 'package:tedreeb_edu_app/core/services/hive_services.dart';
-import 'package:tedreeb_edu_app/core/utils/toast_utils.dart';
-import 'package:tedreeb_edu_app/features/auth/data/datasources/auth_remote_datasource.dart';
-// import 'package:tedreeb_edu_app/features/shared/presentation/controllers/current_user_controller.dart';
+import 'package:etqan_edu_app/config/notification.dart';
+import 'package:etqan_edu_app/core/routes/route_paths.dart';
+// import 'package:etqan_edu_app/core/services/hive_services.dart';
+import 'package:etqan_edu_app/core/utils/toast_utils.dart';
+import 'package:etqan_edu_app/features/auth/data/datasources/auth_remote_datasource.dart';
+// import 'package:etqan_edu_app/features/shared/presentation/controllers/current_user_controller.dart';
 
 class AuthSignupController extends GetxController {
   final isLoading = false.obs;
@@ -27,18 +27,19 @@ class AuthSignupController extends GetxController {
   final selectedProgram = Rxn<ProgramModel>();
   final selectedClass = Rxn<ClassModel>();
 
-  final selectedCountry = country_picker.Country(
-    phoneCode: '962',
-    countryCode: 'JO',
-    e164Sc: 0,
-    geographic: true,
-    level: 1,
-    name: 'Jordan',
-    example: 'Jordan',
-    displayName: 'Jordan (الأردن)',
-    displayNameNoCountryCode: 'Jordan (الأردن)',
-    e164Key: '962-JO-0',
-  ).obs;
+  final selectedCountry =
+      country_picker.Country(
+        phoneCode: '962',
+        countryCode: 'JO',
+        e164Sc: 0,
+        geographic: true,
+        level: 1,
+        name: 'Jordan',
+        example: 'Jordan',
+        displayName: 'Jordan (الأردن)',
+        displayNameNoCountryCode: 'Jordan (الأردن)',
+        e164Key: '962-JO-0',
+      ).obs;
 
   void updateLoginLoading(bool val) {
     isLoading.value = val;

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:tedreeb_edu_app/core/enums/text_style_enum.dart';
-import 'package:tedreeb_edu_app/core/widgets/custom_form_field.dart';
-import 'package:tedreeb_edu_app/core/widgets/custom_text_widget.dart';
+import 'package:etqan_edu_app/core/enums/text_style_enum.dart';
+import 'package:etqan_edu_app/core/widgets/custom_form_field.dart';
+import 'package:etqan_edu_app/core/widgets/custom_text_widget.dart';
 
 class TextWithTextField extends StatefulWidget {
   const TextWithTextField({

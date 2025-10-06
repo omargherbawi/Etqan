@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:tedreeb_edu_app/features/courses/presentation/widgets/course_forum_tap.dart';
+import 'package:etqan_edu_app/features/courses/presentation/widgets/course_forum_tap.dart';
 
 import '../../../../config/config.dart';
 import '../../../../core/core.dart';
@@ -103,7 +103,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
   void fetchData() async {
     if (id != null && isBundle != null) {
       await courseDetailsController.fetchCourseData(id!, isBundle!);
-      
+
       // Save the last opened course to Hive
       final course = courseDetailsController.singleCourseData.value;
       if (course.id != null) {
@@ -118,16 +118,16 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
             'rate': course.rate,
             'students_count': course.studentsCount,
           };
-          
+
           if (course.teacher != null) {
             courseData['teacher'] = course.teacher!.toJson();
           }
           if (course.rateType != null) {
             courseData['rate_type'] = course.rateType!.toJson();
           }
-          
+
           hiveServices.setLastOpenedCourse(courseData);
-          
+
           // Refresh the controller if it exists
           if (Get.isRegistered<LastOpenedCourseController>()) {
             Get.find<LastOpenedCourseController>().refresh();
@@ -411,7 +411,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                       try {
                         // inAppPurchaseUtils.buyNonConsumableProduct('course_1');
                         await inAppPurchaseUtils.buyNonConsumableProduct(
-                          'com.tedreeb.app.Lifetime',
+                          'com.etqan.app.Lifetime',
                         );
                         // await _iapHelper.buyCourse();
                       } catch (e) {

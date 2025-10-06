@@ -1,4 +1,4 @@
-package com.tedreeb4edu.app
+package com.etqan4edu.app
 
 import android.content.Context
 import android.graphics.Color

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
-import 'package:tedreeb_edu_app/config/hive_box_constants.dart';
+import 'package:etqan_edu_app/config/hive_box_constants.dart';
 
 class HiveServices {
   final Box _box = Hive.box("App");

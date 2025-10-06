@@ -15,7 +15,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>tedreeb_edu_app</string>
+		<string>etqan_edu_app</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -34,7 +34,7 @@
 		<key>NSCameraUsageDescription</key>
 		<string>This app requires camera permission to change your profile picture</string>
 		<key>NSContactsUsageDescription</key>
-		<string>We Need this Access to Set tedreeb Time</string>
+		<string>We Need this Access to Set etqan Time</string>
 		<key>NSLocalNetworkUsageDescription</key>
 		<string>Used to search for chromecast devices</string>
 		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

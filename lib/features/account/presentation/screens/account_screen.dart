@@ -115,11 +115,11 @@ class AccountScreen extends StatelessWidget {
               // ),
               IconAndTextTTile(
                 iconPath: AssetPaths.infoSvg,
-                text: "abouttedreeb",
+                text: "aboutetqan",
                 onTap: () {
                   LaunchUrlService.openWeb(
                     context,
-                    "https://tedreeb.com/pages/about",
+                    "https://etqan.com/pages/about",
                   );
                 },
               ),
@@ -130,7 +130,7 @@ class AccountScreen extends StatelessWidget {
                 onTap: () {
                   LaunchUrlService.openWeb(
                     context,
-                    "https://tedreeb.com/pages/privacy-policy",
+                    "https://etqan.com/pages/privacy-policy",
                   );
                 },
               ),
@@ -147,5 +147,3 @@ class AccountScreen extends StatelessWidget {
     );
   }
 }
-
-

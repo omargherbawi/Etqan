@@ -1,4 +1,4 @@
-import 'package:tedreeb_edu_app/core/widgets/custom_image.dart';
+import 'package:etqan_edu_app/core/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 
 class SlideGalleryWidget extends StatefulWidget {

@@ -2,7 +2,7 @@ class AssetPaths {
   static const String appLogo = 'assets/images/logot.png';
   static const String fav = 'assets/images/fav.png';
 
-  static const String appGradientLogo = 'assets/images/TedreebLogo.png';
+  static const String appGradientLogo = 'assets/images/etqanLogo.png';
   static const String sloganPng = "assets/images/solid_purple_background.png";
   static const String aboutPng = "assets/images/about.png";
   static const String login = 'assets/images/login.png';
@@ -101,8 +101,7 @@ class AssetPaths {
   static const String logoutSvg = 'assets/svgs/logout.svg';
   static const String passwordManagerSvg = 'assets/svgs/password_manager.svg';
   static const String deleteAccountSvg = 'assets/svgs/delete_account.svg';
-  static const String tedreebServiceCardSvg =
-      'assets/svgs/asas_service_card.svg';
+  static const String etqanServiceCardSvg = 'assets/svgs/asas_service_card.svg';
   static const String filesSvg = 'assets/svgs/files.svg';
   static const String sellPlacesSvg = 'assets/svgs/sell_points.svg';
   static const String infoSvg = 'assets/svgs/info.svg';

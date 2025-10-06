@@ -8,7 +8,7 @@ import '../../courses/presentation/controllers/user_course_controller.dart';
 import '../data/datasources/home_remote_datasource.dart';
 import '../presentation/controllers/refresh_home_data_controller.dart';
 
-// import 'package:tedreeb_edu_app/features/shared/presentation/controllers/notifications_controller.dart';
+// import 'package:etqan_edu_app/features/shared/presentation/controllers/notifications_controller.dart';
 
 class HomeBindings extends Bindings {
   @override

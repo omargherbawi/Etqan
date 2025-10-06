@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tedreeb_edu_app/config/app_colors.dart';
+import 'package:etqan_edu_app/config/app_colors.dart';
 
 class AuthTextFieldWidget extends StatefulWidget {
   final String title;
@@ -46,28 +46,28 @@ class _AuthTextFieldWidgetState extends State<AuthTextFieldWidget> {
       style: const TextStyle(color: Colors.white),
       obscureText: widget.isPassword ? _obscureText : false,
       keyboardType: widget.keyboardType,
-      inputFormatters: widget.numbersOnly
-          ? [FilteringTextInputFormatter.digitsOnly]
-          : null,
+      inputFormatters:
+          widget.numbersOnly ? [FilteringTextInputFormatter.digitsOnly] : null,
       decoration: InputDecoration(
         hintText: widget.title.tr(),
         hintStyle: const TextStyle(color: Colors.grey),
         prefixIcon: widget.prefixIcon,
-        suffixIcon: widget.isPassword
-            ? IconButton(
-                onPressed: () {
-                  setState(() {
-                    _obscureText = !_obscureText;
-                  });
-                },
-                icon: Icon(
-                  _obscureText
-                      ? Icons.visibility_off_outlined
-                      : Icons.visibility_outlined,
-                  color: Colors.grey,
-                ),
-              )
-            : null,
+        suffixIcon:
+            widget.isPassword
+                ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                  icon: Icon(
+                    _obscureText
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
+                    color: Colors.grey,
+                  ),
+                )
+                : null,
         filled: true,
         fillColor: SharedColors.authTextFieldBgColor,
         border: OutlineInputBorder(
@@ -84,4 +84,3 @@ class _AuthTextFieldWidgetState extends State<AuthTextFieldWidget> {
     );
   }
 }
-

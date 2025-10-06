@@ -1,4 +1,4 @@
-name: tedreeb_edu_app
+name: etqan_edu_app
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -97,6 +97,7 @@ dependencies:
 
 
 dev_dependencies:
+  change_app_package_name: ^1.5.0
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter

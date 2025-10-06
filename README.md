@@ -1,4 +1,4 @@
-# tedreeb_edu_app
+# etqan_edu_app
 
 A new Flutter project.
 

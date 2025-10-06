@@ -22,7 +22,7 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    namespace = "com.tedreeb4edu.app"
+    namespace = "com.etqan4edu.app"
     compileSdk = 35
     ndkVersion = "27.0.12077973"
 
@@ -37,7 +37,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.tedreeb4edu.app"
+        applicationId = "com.etqan4edu.app"
         multiDexEnabled = true
         minSdk = 26
         targetSdk = 35

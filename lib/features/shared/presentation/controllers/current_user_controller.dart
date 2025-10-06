@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/features/account/data/models/profile_model.dart';
+import 'package:etqan_edu_app/features/account/data/models/profile_model.dart';
 import '../../../../core/routes/route_paths.dart';
 import '../../../../core/services/analytics.service.dart';
 import '../../../../core/services/hive_services.dart';

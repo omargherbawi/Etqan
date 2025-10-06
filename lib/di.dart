@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/core/network/network_controller.dart';
-import 'package:tedreeb_edu_app/core/services/analytics.service.dart';
-import 'package:tedreeb_edu_app/core/services/header_provider.dart';
-import 'package:tedreeb_edu_app/core/services/hive_services.dart';
-import 'package:tedreeb_edu_app/features/account/data/datasources/account_remote_datasource.dart';
-import 'package:tedreeb_edu_app/features/shared/data/datasources/shared_remote_datasources.dart';
-import 'package:tedreeb_edu_app/features/shared/presentation/controllers/app_controller.dart';
-import 'package:tedreeb_edu_app/features/shared/presentation/controllers/app_theme_controller.dart';
-import 'package:tedreeb_edu_app/features/shared/presentation/controllers/bottom_nav_bar_controller.dart';
-import 'package:tedreeb_edu_app/features/shared/presentation/controllers/current_user_controller.dart';
-import 'package:tedreeb_edu_app/features/shared/presentation/controllers/shared_courses_controller.dart';
+import 'package:etqan_edu_app/core/network/network_controller.dart';
+import 'package:etqan_edu_app/core/services/analytics.service.dart';
+import 'package:etqan_edu_app/core/services/header_provider.dart';
+import 'package:etqan_edu_app/core/services/hive_services.dart';
+import 'package:etqan_edu_app/features/account/data/datasources/account_remote_datasource.dart';
+import 'package:etqan_edu_app/features/shared/data/datasources/shared_remote_datasources.dart';
+import 'package:etqan_edu_app/features/shared/presentation/controllers/app_controller.dart';
+import 'package:etqan_edu_app/features/shared/presentation/controllers/app_theme_controller.dart';
+import 'package:etqan_edu_app/features/shared/presentation/controllers/bottom_nav_bar_controller.dart';
+import 'package:etqan_edu_app/features/shared/presentation/controllers/current_user_controller.dart';
+import 'package:etqan_edu_app/features/shared/presentation/controllers/shared_courses_controller.dart';
 
 class DependencyInjection {
   static void init() {

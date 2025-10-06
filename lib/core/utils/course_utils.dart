@@ -1,4 +1,4 @@
-import 'package:tedreeb_edu_app/core/enums/course_type_enum.dart';
+import 'package:etqan_edu_app/core/enums/course_type_enum.dart';
 
 import '../../features/courses/data/models/course_model.dart';
 

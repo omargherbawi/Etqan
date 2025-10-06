@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tedreeb_edu_app/config/config.dart';
+import 'package:etqan_edu_app/config/config.dart';
 
 class LightDivider extends StatelessWidget {
   final double? thickness;

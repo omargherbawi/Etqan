@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:open_file/open_file.dart';
-import 'package:tedreeb_edu_app/core/core.dart';
-import 'package:tedreeb_edu_app/features/home/data/models/filter_shared_model.dart';
+import 'package:etqan_edu_app/core/core.dart';
+import 'package:etqan_edu_app/features/home/data/models/filter_shared_model.dart';
 
 import '../controllers/files_controller.dart';
 
@@ -143,7 +143,7 @@ class FilesScreen extends StatelessWidget {
                                           : null,
                                 ),
                                 title: CustomTextWidget(
-                                  text: instructor.fullName ?? 'معلم تدريب',
+                                  text: instructor.fullName ?? 'معلم إتقان',
                                   fontWeight: FontWeight.w500,
                                 ),
                                 subtitle: CustomTextWidget(
@@ -183,7 +183,7 @@ class FilesScreen extends StatelessWidget {
                 controller.selectedInstructor.value == null
                     ? '${"select".tr(context: context)} ${"instructorName".tr(context: context)}'
                     : controller.selectedInstructor.value!.fullName ??
-                        'معلم تدريب',
+                        'معلم إتقان',
             filled: true,
             fillColor: Get.theme.colorScheme.onSecondaryContainer,
 
@@ -337,8 +337,7 @@ class FilesScreen extends StatelessWidget {
                                         file.fileType != "pdf")
                                       return;
 
-                                    final url =
-                                        "https://tedreeb.com${file.file}";
+                                    final url = "https://etqan.com${file.file}";
                                     final fileName =
                                         (file.translations?[0].title ?? 'file')
                                             .replaceAll(" ", "_");

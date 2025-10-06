@@ -1,4 +1,4 @@
-import 'package:tedreeb_edu_app/features/account/data/models/countries_model.dart';
+import 'package:etqan_edu_app/features/account/data/models/countries_model.dart';
 
 final List<Country> countriesList = [
   Country(

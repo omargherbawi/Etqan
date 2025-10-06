@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:tedreeb_edu_app/config/app_colors.dart';
-import 'package:tedreeb_edu_app/core/enums/text_style_enum.dart';
-import 'package:tedreeb_edu_app/core/utils/utils.dart';
-import 'package:tedreeb_edu_app/core/widgets/custom_button.dart';
-import 'package:tedreeb_edu_app/core/widgets/custom_text_widget.dart';
+import 'package:etqan_edu_app/config/app_colors.dart';
+import 'package:etqan_edu_app/core/enums/text_style_enum.dart';
+import 'package:etqan_edu_app/core/utils/utils.dart';
+import 'package:etqan_edu_app/core/widgets/custom_button.dart';
+import 'package:etqan_edu_app/core/widgets/custom_text_widget.dart';
 
 class CustomModalBottomSheet extends StatelessWidget {
   final String title;

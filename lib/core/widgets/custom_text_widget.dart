@@ -1,4 +1,4 @@
-import 'package:tedreeb_edu_app/core/enums/text_style_enum.dart';
+import 'package:etqan_edu_app/core/enums/text_style_enum.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

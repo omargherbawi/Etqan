@@ -458,7 +458,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                                     onTap: () {
                                       LaunchUrlService.openWeb(
                                         context,
-                                        "https://tedreeb.com/pages/terms-and-conditions",
+                                        "https://etqan.com/pages/terms-and-conditions",
                                       );
                                     },
                                     child: Text(

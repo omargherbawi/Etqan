@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '339385233809',
     projectId: 'etqan-fd4d3',
     storageBucket: 'etqan-fd4d3.firebasestorage.app',
-    iosBundleId: 'com.tedreeb4edu.app',
+    iosBundleId: 'com.etqan4edu.app',
   );
 
   static const FirebaseOptions web = FirebaseOptions(
@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'etqan-fd4d3.firebasestorage.app',
     measurementId: 'G-PQ5F3GY9SM',
   );
-
 }

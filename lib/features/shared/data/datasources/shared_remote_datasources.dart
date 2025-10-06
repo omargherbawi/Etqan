@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter_udid/flutter_udid.dart';
-import 'package:tedreeb_edu_app/config/json_constants.dart';
-import 'package:tedreeb_edu_app/core/services/notification_service.dart';
-import 'package:tedreeb_edu_app/features/account/data/models/profile_model.dart';
-import 'package:tedreeb_edu_app/features/shared/data/models/notification_model.dart';
+import 'package:etqan_edu_app/config/json_constants.dart';
+import 'package:etqan_edu_app/core/services/notification_service.dart';
+import 'package:etqan_edu_app/features/account/data/models/profile_model.dart';
+import 'package:etqan_edu_app/features/shared/data/models/notification_model.dart';
 
 import '../../../../config/api_paths.dart';
 import '../../../../core/errors/failure.dart';

@@ -12,8 +12,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class PackageCard extends StatelessWidget {
   Future<void> _launchURL(int id) async {
-    if (await canLaunch("https://tedreeb.com/packages/package-details/$id")) {
-      await launch("https://tedreeb.com/packages/package-details/$id");
+    if (await canLaunch("https://etqan.com/packages/package-details/$id")) {
+      await launch("https://etqan.com/packages/package-details/$id");
     } else {
       throw tr('unableToOpenTheLink');
     }

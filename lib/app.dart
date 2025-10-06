@@ -7,11 +7,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:tedreeb_edu_app/config/app_themes.dart';
-import 'package:tedreeb_edu_app/core/routes/route_paths.dart';
-import 'package:tedreeb_edu_app/core/routes/router.dart';
-import 'package:tedreeb_edu_app/core/utils/prints.dart';
-import 'package:tedreeb_edu_app/features/shared/presentation/screens/user_state_screen.dart';
+import 'package:etqan_edu_app/config/app_themes.dart';
+import 'package:etqan_edu_app/core/routes/route_paths.dart';
+import 'package:etqan_edu_app/core/routes/router.dart';
+import 'package:etqan_edu_app/core/utils/prints.dart';
+import 'package:etqan_edu_app/features/shared/presentation/screens/user_state_screen.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -114,7 +114,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          title: 'tedreeb-تدريب',
+          title: 'etqan-إتقان',
           theme: AppThemes.lightTheme,
           darkTheme: AppThemes.darkTheme,
           themeMode: ThemeMode.light,

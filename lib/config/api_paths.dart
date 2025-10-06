@@ -1,6 +1,6 @@
 class ApiPaths {
   //baseUrl
-  static String baseUrl = "https://tedreeb.com/api/";
+  static String baseUrl = "https://etqan.com/api/";
   // static String baseUrl = "http://192.168.1.21:8000/api/";
 
   //endpoints

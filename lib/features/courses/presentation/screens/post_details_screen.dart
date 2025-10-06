@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart' hide Trans;
-import 'package:tedreeb_edu_app/features/courses/presentation/controllers/course_detail_controller.dart';
+import 'package:etqan_edu_app/features/courses/presentation/controllers/course_detail_controller.dart';
 import '../../data/models/post_model.dart';
 import '../../data/models/forum_answer_model.dart';
 import '../controllers/post_details_controller.dart';

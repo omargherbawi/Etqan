@@ -1,5 +1,5 @@
-import 'package:tedreeb_edu_app/config/app_colors.dart';
-import 'package:tedreeb_edu_app/config/asset_paths.dart';
+import 'package:etqan_edu_app/config/app_colors.dart';
+import 'package:etqan_edu_app/config/asset_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

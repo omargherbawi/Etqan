@@ -1,4 +1,4 @@
-import 'package:tedreeb_edu_app/core/errors/strings.dart';
+import 'package:etqan_edu_app/core/errors/strings.dart';
 
 class FileMaxSizeExceededException implements Exception {
   @override

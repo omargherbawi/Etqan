@@ -124,19 +124,19 @@ class AccountSettingsScreen extends StatelessWidget {
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_svg/svg.dart';
 // import 'package:get/get.dart';
-// import 'package:tedreeb_edu_app/config/app_colors.dart';
-// import 'package:tedreeb_edu_app/config/asset_paths.dart';
-// import 'package:tedreeb_edu_app/core/enums/text_style_enum.dart';
-// import 'package:tedreeb_edu_app/core/routes/route_paths.dart';
-// import 'package:tedreeb_edu_app/core/utils/helper_functions.dart';
-// import 'package:tedreeb_edu_app/core/utils/shared.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_appbar.dart';
-// import 'package:tedreeb_edu_app/core/widgets/custom_text_widget.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/controllers/settings_controller.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/screens/account_faq_screen.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/widgets/language_widget.dart';
-// import 'package:tedreeb_edu_app/features/account/presentation/widgets/settings_row_widget.dart';
-// import 'package:tedreeb_edu_app/features/shared/presentation/controllers/app_theme_controller.dart';
+// import 'package:etqan_edu_app/config/app_colors.dart';
+// import 'package:etqan_edu_app/config/asset_paths.dart';
+// import 'package:etqan_edu_app/core/enums/text_style_enum.dart';
+// import 'package:etqan_edu_app/core/routes/route_paths.dart';
+// import 'package:etqan_edu_app/core/utils/helper_functions.dart';
+// import 'package:etqan_edu_app/core/utils/shared.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_appbar.dart';
+// import 'package:etqan_edu_app/core/widgets/custom_text_widget.dart';
+// import 'package:etqan_edu_app/features/account/presentation/controllers/settings_controller.dart';
+// import 'package:etqan_edu_app/features/account/presentation/screens/account_faq_screen.dart';
+// import 'package:etqan_edu_app/features/account/presentation/widgets/language_widget.dart';
+// import 'package:etqan_edu_app/features/account/presentation/widgets/settings_row_widget.dart';
+// import 'package:etqan_edu_app/features/shared/presentation/controllers/app_theme_controller.dart';
 //
 // class AccountSettingsScreen extends StatelessWidget {
 //   const AccountSettingsScreen({super.key});

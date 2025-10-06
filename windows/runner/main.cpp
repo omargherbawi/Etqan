@@ -142,7 +142,7 @@ Win32Window::Point origin(10, 10);
 Win32Window::Size size(1280, 720);
 
 FlutterWindow window(project);
-if (!window.Create(L"tedreeb_edu_app", origin, size)) {
+if (!window.Create(L"etqan_edu_app", origin, size)) {
 return
 EXIT_FAILURE;
 }
