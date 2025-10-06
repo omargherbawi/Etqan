@@ -4,7 +4,7 @@ class AppConstants {
   static const String contactUsPhoneNumber = '+963995789236';
   static const String contactUsEmail = 'support@tedreep4edu.com';
   static const String oneSignalNotificationID =
-      'f2a6eac5-6121-497e-8400-2773134f78a3';
+      'a3970887-e783-4459-b533-2b09ff1ff259';
 
   static const String iosAppVersion = '1.0.3';
   static const String androidAppVersion = '1.0.3';
