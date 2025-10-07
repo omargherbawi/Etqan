@@ -42,7 +42,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAKkwtoCHSIqqpgBZ7pl2J22r-nbI5t5cs',
-    appId: '1:339385233809:android:361a488c389b48975caa30',
+    appId: '1:339385233809:android:0382943c7e0975bd5caa30',
     messagingSenderId: '339385233809',
     projectId: 'etqan-fd4d3',
     storageBucket: 'etqan-fd4d3.firebasestorage.app',
@@ -50,7 +50,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyB7dZFeL9onTa50JzSw1DYsp40OaBKnWrU',
-    appId: '1:339385233809:ios:57ea1d8beccd5a895caa30',
+    appId: '1:339385233809:ios:eaa9685e985ae3ef5caa30',
     messagingSenderId: '339385233809',
     projectId: 'etqan-fd4d3',
     storageBucket: 'etqan-fd4d3.firebasestorage.app',
@@ -59,12 +59,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBczYqgAD12gvasmNn1Q_3-8F15MckBI4s',
-    appId: '1:339385233809:web:45201367ce86362f5caa30',
+    appId: '1:339385233809:web:0100b780075bff8f5caa30',
     messagingSenderId: '339385233809',
     projectId: 'etqan-fd4d3',
     authDomain: 'etqan-fd4d3.firebaseapp.com',
     storageBucket: 'etqan-fd4d3.firebasestorage.app',
-    measurementId: 'G-GNBD96JEK4',
+    measurementId: 'G-PQ5F3GY9SM',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -78,11 +78,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyBczYqgAD12gvasmNn1Q_3-8F15MckBI4s',
-    appId: '1:339385233809:web:0100b780075bff8f5caa30',
+    appId: '1:339385233809:web:a9eacd26285f3a5e5caa30',
     messagingSenderId: '339385233809',
     projectId: 'etqan-fd4d3',
     authDomain: 'etqan-fd4d3.firebaseapp.com',
     storageBucket: 'etqan-fd4d3.firebasestorage.app',
-    measurementId: 'G-PQ5F3GY9SM',
+    measurementId: 'G-RH5YK6S4FQ',
   );
+
 }
