@@ -520,7 +520,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.asas4edu.net.app.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etqan4edu.net.app.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/etqan_edu_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/etqan_edu_app";
@@ -536,7 +536,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.asas4edu.net.app.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etqan4edu.net.app.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/etqan_edu_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/etqan_edu_app";
@@ -552,7 +552,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.asas4edu.net.app.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etqan4edu.net.app.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/etqan_edu_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/etqan_edu_app";

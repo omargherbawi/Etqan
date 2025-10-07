@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.asas4edu.net.app</string>
+	<string>com.etqan4edu.net.app</string>
 	<key>PROJECT_ID</key>
 	<string>etqan-fd4d3</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:339385233809:ios:5b276a3071de9ff25caa30</string>
+	<string>1:339385233809:ios:e8994ba4aa29715c5caa30</string>
 </dict>
 </plist>
