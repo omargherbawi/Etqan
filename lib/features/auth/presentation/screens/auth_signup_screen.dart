@@ -28,12 +28,10 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
     with SingleTickerProviderStateMixin {
   final _fullNameController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   late TabController _tabController;
 
   final _passwordFocusNode = FocusNode();
-  final _confirmPasswordFocusNode = FocusNode();
   final _formKey = GlobalKey<FormState>();
   final _signupController = Get.find<AuthSignupController>();
   final _appController = Get.find<AppController>();
@@ -96,8 +94,6 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
     _fullNameController.dispose();
     _passwordController.dispose();
     phoneController.dispose();
-    _confirmPasswordController.dispose();
-    _confirmPasswordFocusNode.dispose();
     _passwordFocusNode.dispose();
 
     super.dispose();
@@ -130,36 +126,46 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final imageHeight = screenHeight * 0.25;
+    final topSpacing = screenHeight * 0.02;
+    
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         top: false,
         child: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
-          child: Column(
-            children: [
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.25,
-                width: double.infinity,
-                child: Image.asset(AssetPaths.signup, fit: BoxFit.contain),
-              ),
-              Container(
-                width: double.infinity,
-                constraints: BoxConstraints(
-                  minHeight: MediaQuery.of(context).size.height * 0.70,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: screenHeight,
+            ),
+            child: Column(
+              children: [
+                SizedBox(height: topSpacing),
+                SizedBox(
+                  height: imageHeight,
+                  width: double.infinity,
+                  child: Image.asset(AssetPaths.signup, fit: BoxFit.contain),
                 ),
-                decoration: const BoxDecoration(
-                  color: SharedColors.authPrimaryColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                Container(
+                  width: double.infinity,
+                  constraints: BoxConstraints(
+                    minHeight: screenHeight - imageHeight - topSpacing,
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Form(
+                  decoration: const BoxDecoration(
+                    color: SharedColors.authPrimaryColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Form(
                     key: _formKey,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -365,29 +371,6 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                               (value) => passwordValidator(value, context),
                           focusNode: _passwordFocusNode,
                           onFieldSubmitted: (_) {
-                            FocusScope.of(
-                              context,
-                            ).requestFocus(_confirmPasswordFocusNode);
-                          },
-                        ),
-                        const SizedBox(height: 14),
-                        AuthTextFieldWidget(
-                          title: 'confirmPassword',
-                          prefixIcon: const Icon(
-                            Icons.lock_outlined,
-                            color: Colors.grey,
-                          ),
-                          keyboardType: TextInputType.text,
-                          isPassword: true,
-                          controller: _confirmPasswordController,
-                          validator:
-                              (value) => confirmPasswordValidator(
-                                value,
-                                _passwordController.text,
-                                context,
-                              ),
-                          focusNode: _confirmPasswordFocusNode,
-                          onFieldSubmitted: (_) {
                             _signupAction();
                           },
                         ),
@@ -585,6 +568,7 @@ class _AuthSignupScreenState extends State<AuthSignupScreen>
                 ),
               ),
             ],
+            ),
           ),
         ),
       ),

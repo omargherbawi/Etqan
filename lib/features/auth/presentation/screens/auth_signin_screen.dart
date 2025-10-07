@@ -68,36 +68,46 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final imageHeight = screenHeight * 0.30;
+    final topSpacing = screenHeight * 0.03;
+    
     return Scaffold(
       body: SafeArea(
         top: false,
+        bottom: false,
         child: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
-          child: Column(
-            children: [
-              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.30,
-                width: double.infinity,
-                child: Image.asset(AssetPaths.login, fit: BoxFit.cover),
-              ),
-              Container(
-                width: double.infinity,
-                constraints: BoxConstraints(
-                  minHeight: MediaQuery.of(context).size.height * 0.67,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: screenHeight,
+            ),
+            child: Column(
+              children: [
+                SizedBox(height: topSpacing),
+                SizedBox(
+                  height: imageHeight,
+                  width: double.infinity,
+                  child: Image.asset(AssetPaths.login, fit: BoxFit.cover),
                 ),
-                decoration: const BoxDecoration(
-                  color: SharedColors.authPrimaryColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                Container(
+                  width: double.infinity,
+                  constraints: BoxConstraints(
+                    minHeight: screenHeight - imageHeight - topSpacing,
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Form(
+                  decoration: const BoxDecoration(
+                    color: SharedColors.authPrimaryColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Form(
                     key: _formKey,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -358,6 +368,7 @@ class _AuthSigninScreenState extends State<AuthSigninScreen> {
                 ),
               ),
             ],
+            ),
           ),
         ),
       ),
