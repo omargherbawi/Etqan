@@ -104,6 +104,7 @@ class CustomCourseContainer extends StatelessWidget {
                   Row(
                     children: [
                       IconAndValueRowBuild(
+                        
                         svg: AssetPaths.personGrey,
                         value: course.teacher?.fullName ?? "",
                       ),

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:easy_localization/easy_localization.dart';
@@ -153,7 +152,8 @@ class _HomeScreenBodyContent extends StatelessWidget {
                   ],
                 );
               }),
-              if (Platform.isAndroid &&
+              if (
+                // Platform.isAndroid &&
                   sharedCoursesController.paidCoursesClasses.isNotEmpty) ...{
                 TopHeadingRowBuild(
                   heading: "paidClasses",
@@ -195,7 +195,8 @@ class _HomeScreenBodyContent extends StatelessWidget {
               //     courses: sharedCoursesController.freeCoursesClasses,
               //   ),
               // },
-              if (Platform.isAndroid &&
+              if (
+                // Platform.isAndroid &&
                   sharedCoursesController.packages.isNotEmpty) ...{
                 TopHeadingRowBuild(
                   heading: "pakages",

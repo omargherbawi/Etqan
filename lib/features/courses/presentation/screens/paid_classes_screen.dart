@@ -96,23 +96,21 @@ class _PaidClassesScreenState extends State<PaidClassesScreen> {
                           userCoursesController.allPaidCourses.length) {
                         final course =
                         userCoursesController.allPaidCourses[index];
-                        return CourseContainerDesign(
-                          child: CustomCourseContainer(
-                            showRating: false,
-                            course: course,
-                            isOngoing: true,
-                            onCourseTap: () {
-                              Get.toNamed(
-                                RoutePaths.courseDetailScreen,
-                                arguments: {
-                                  "isBundle": course.type == "bundle",
-                                  "id": course.id,
-                                  "isPrivate":
-                                  course.isPrivate == 1 ? true : false,
-                                },
-                              );
-                            },
-                          ),
+                        return CustomCourseContainer(
+                          showRating: false,
+                          course: course,
+                          isOngoing: true,
+                          onCourseTap: () {
+                            Get.toNamed(
+                              RoutePaths.courseDetailScreen,
+                              arguments: {
+                                "isBundle": course.type == "bundle",
+                                "id": course.id,
+                                "isPrivate":
+                                course.isPrivate == 1 ? true : false,
+                              },
+                            );
+                          },
                         );
                       } else {
                         return Padding(

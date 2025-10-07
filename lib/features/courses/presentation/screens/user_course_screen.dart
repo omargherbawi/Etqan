@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:etqan_edu_app/config/app_colors.dart';
 import '../../../../core/core.dart';
 
 import '../controllers/user_course_controller.dart';
@@ -14,19 +13,20 @@ class UserCurrentCourseScreen extends StatelessWidget {
     final userCoursesController = Get.find<UserCourseController>();
 
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar:  const CustomAppBar(
         title: "myCourses",
-        leading: Obx(() {
-          return userCoursesController.isLoading.value
-              ? const LoadingAnimation()
-              : IconButton(
-                iconSize: 30,
-                onPressed: () {
-                  userCoursesController.refrehData();
-                },
-                icon: Icon(Icons.refresh, color: AppLightColors.primaryColor),
-              );
-        }),
+        leading: SizedBox.shrink(),
+        // leading: Obx(() {
+        //   return userCoursesController.isLoading.value
+        //       ? const LoadingAnimation()
+        //       : IconButton(
+        //         iconSize: 30,
+        //         onPressed: () {
+        //           userCoursesController.refrehData();
+        //         },
+        //         icon: Icon(Icons.refresh, color: AppLightColors.primaryColor),
+        //       );
+        // }),
       ),
       body: Center(
         child: Padding(
