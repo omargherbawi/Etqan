@@ -8,7 +8,6 @@ import '../../../../config/app_colors.dart';
 import '../../../../config/asset_paths.dart';
 import '../controllers/bottom_nav_bar_controller.dart';
 import '../controllers/current_user_controller.dart';
-import '../widgets/liquid_bottom_navbar_drop.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -91,7 +90,7 @@ class NavBar extends StatelessWidget {
                 unselectedItemColor: SharedColors.greyTextColor,
                 selectedLabelStyle: GoogleFonts.cairo(
                   fontSize: 10.sp,
-                  color: SharedColors.darkRedColor,
+                  color: SharedColors.primaryColor,
                   fontWeight: FontWeight.w600,
                 ),
                 unselectedLabelStyle: GoogleFonts.cairo(
@@ -107,34 +106,34 @@ class NavBar extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: -15.h,
-            left: _calculateLiquidPosition(
-              context,
-              controller.currentIndex.value,
-              controller.screens.length,
-            ),
-            child: const LiquidDrop(),
-          ),
+          // Positioned(
+          //   top: -15.h,
+          //   left: _calculateLiquidPosition(
+          //     context,
+          //     controller.currentIndex.value,
+          //     controller.screens.length,
+          //   ),
+          //   child: const LiquidDrop(),
+          // ),
         ],
       ),
     );
   }
 
-  double _calculateLiquidPosition(
-    BuildContext context,
-    int selectedIndex,
-    int screenLength,
-  ) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final itemWidth = screenWidth / 3; // Fixed to 3 items
-    final isRTL = Directionality.of(context) == TextDirection.rtl;
+  // double _calculateLiquidPosition(
+  //   BuildContext context,
+  //   int selectedIndex,
+  //   int screenLength,
+  // ) {
+  //   final screenWidth = MediaQuery.sizeOf(context).width;
+  //   final itemWidth = screenWidth / 3; // Fixed to 3 items
+  //   final isRTL = Directionality.of(context) == TextDirection.rtl;
 
-    // Invert the index calculation for RTL
-    return isRTL
-        ? screenWidth - ((selectedIndex + 1) * itemWidth) + (itemWidth / 2) - 12
-        : (selectedIndex * itemWidth) + (itemWidth / 2) - 12;
-  }
+  //   // Invert the index calculation for RTL
+  //   return isRTL
+  //       ? screenWidth - ((selectedIndex + 1) * itemWidth) + (itemWidth / 2) - 12
+  //       : (selectedIndex * itemWidth) + (itemWidth / 2) - 12;
+  // }
 
   Widget _buildNavItemIcon(
     BottomNavController controller,
@@ -153,7 +152,7 @@ class NavBar extends StatelessWidget {
 
                 colorFilter: ColorFilter.mode(
                   controller.currentIndex.value == index
-                      ? SharedColors.darkRedColor
+                      ? SharedColors.primaryColor
                       : SharedColors.greyTextColor,
                   BlendMode.srcIn,
                 ),

@@ -194,7 +194,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                                       child: Row(
                                         children: [
                                           CircleIconButton(
-                                            icon: Icons.arrow_back,
+                                            icon: Icons.arrow_back_ios,
                                             iconColor:
                                                 Get
                                                     .theme
@@ -231,7 +231,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                                         child: Row(
                                           children: [
                                             CircleIconButton(
-                                              icon: Icons.arrow_back,
+                                              icon: Icons.arrow_back_ios,
                                               iconColor:
                                                   Get
                                                       .theme
