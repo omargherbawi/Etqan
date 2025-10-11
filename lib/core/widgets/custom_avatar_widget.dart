@@ -1,5 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:etqan_edu_app/core/widgets/custom_cached_image.dart';
 import 'package:flutter/material.dart';
 
@@ -26,11 +24,7 @@ class CustomAvatarWidget extends StatelessWidget {
       decoration: const BoxDecoration(shape: BoxShape.circle),
       child:
           imageUrl == null
-              ? SvgPicture.asset(
-                AssetPaths.personOutline,
-                width: 40.w,
-                fit: BoxFit.scaleDown,
-              )
+              ? Image.asset(AssetPaths.student)
               : CustomCachedImage(image: imageUrl!),
     );
   }

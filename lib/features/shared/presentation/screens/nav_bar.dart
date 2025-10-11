@@ -62,7 +62,7 @@ class NavBar extends StatelessWidget {
           controller,
           context,
           index: 2,
-          asset: AssetPaths.profileSvg,
+          asset: AssetPaths.yourProfileSvg,
         ),
         label: "myProfile".tr(context: context),
       ),

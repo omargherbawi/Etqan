@@ -1,6 +1,8 @@
+import 'package:etqan_edu_app/features/account/presentation/controllers/settings_controller.dart';
+
 import '../../../../config/config.dart';
 import '../../../../core/core.dart';
-import '../../../../core/routes/route_paths.dart';
+// import '../../../../core/routes/route_paths.dart';
 import '../../../../core/services/url_launcher_service.dart';
 import '../../../shared/presentation/controllers/current_user_controller.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,8 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userController = Get.find<CurrentUserController>();
+    final settingsController = Get.put(SettingsController());
+
     return Scaffold(
       appBar: const CustomAppBar(
         title: "myProfile",
@@ -72,13 +76,33 @@ class AccountScreen extends StatelessWidget {
               //   text: "Payment Methods",
               //   onTap: () => Get.toNamed(RoutePaths.paymentMethod),
               // ),
+              // const Divider(color: SharedColors.grayColor, thickness: 0.5),
+
+              // IconAndTextTTile(
+              //   iconPath: AssetPaths.settingsSvg,
+              //   text: "settings",
+              //   onTap: () => Get.toNamed(RoutePaths.settings),
+              // ),
+              // const Divider(color: SharedColors.grayColor, thickness: 0.5),
+              Obx(() {
+                return SwitchButton(
+                  iconPath: AssetPaths.notificationSvg,
+                  text: "allowNotifications",
+                  state: settingsController.notificationEnabled.value,
+                  onChangeState: (value) {
+                    settingsController.changeNotificationStatus(value);
+                  },
+                  loading: settingsController.changingNotificationStatus.value,
+                );
+              }),
               const Divider(color: SharedColors.grayColor, thickness: 0.5),
 
               IconAndTextTTile(
-                iconPath: AssetPaths.settingsSvg,
-                text: "settings",
-                onTap: () => Get.toNamed(RoutePaths.settings),
+                iconPath: AssetPaths.logoutSvg,
+                text: "logOut",
+                onTap: () => HelperFunctions.showLogoutDialog(context),
               ),
+
               const Divider(color: SharedColors.grayColor, thickness: 0.5),
 
               // IconAndTextTTile(
@@ -134,11 +158,16 @@ class AccountScreen extends StatelessWidget {
                   );
                 },
               ),
+
               const Divider(color: SharedColors.grayColor, thickness: 0.5),
               IconAndTextTTile(
-                iconPath: AssetPaths.logoutSvg,
-                text: "logOut",
-                onTap: () => HelperFunctions.showLogoutDialog(context),
+                svgColor: Colors.red,
+                textColor: Colors.red,
+                iconPath: AssetPaths.deleteAccountSvg,
+                textWeight: FontWeight.bold,
+                hideArrow: true,
+                text: "deleteAcc",
+                onTap: () => HelperFunctions.showDeleteDialog(context),
               ),
             ],
           ),

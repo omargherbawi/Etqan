@@ -10,18 +10,27 @@ class IconAndTextTTile extends StatelessWidget {
   final String? iconPath;
   final IconData? icon;
   final String text;
+  final Color? textColor;
+  final Color? svgColor;
+  final bool hideArrow;
+  final FontWeight? textWeight;
   final Color? iconColor;
   final Function()? onTap;
   final EdgeInsetsGeometry? padding;
 
   const IconAndTextTTile({
     super.key,
+    this.svgColor,
+    this.textColor,
+
     this.iconPath,
     this.icon,
+    this.hideArrow = false,
     required this.text,
     this.iconColor,
     this.padding,
     this.onTap,
+    this.textWeight,
   }) : assert(iconPath != null || icon != null);
 
   @override
@@ -35,7 +44,8 @@ class IconAndTextTTile extends StatelessWidget {
                 iconPath!,
                 width: 24.w,
                 height: 24.h,
-                color: Get.theme.colorScheme.primary,
+
+                color: svgColor ?? Get.theme.colorScheme.primary,
               )
               : Icon(
                 icon,
@@ -43,11 +53,16 @@ class IconAndTextTTile extends StatelessWidget {
                 color: iconColor ?? Get.theme.colorScheme.primary,
               ),
       text: text,
-      trailingWidget: Icon(
-        Icons.arrow_forward_ios,
-        size: 16.w,
-        color: Get.theme.primaryColor,
-      ),
+      textWeight: textWeight ?? FontWeight.w400,
+      textColor: textColor ?? Get.theme.colorScheme.inverseSurface,
+      trailingWidget:
+          hideArrow
+              ? const SizedBox.shrink()
+              : Icon(
+                Icons.arrow_forward_ios,
+                size: 16.w,
+                color: Get.theme.primaryColor,
+              ),
     );
   }
 }

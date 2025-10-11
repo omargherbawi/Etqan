@@ -44,6 +44,7 @@ class AssetPaths {
   static const String googleSvg = 'assets/svgs/google.svg';
   static const String appleSvg = 'assets/svgs/apple.svg';
   static const String fireSvg = 'assets/svgs/fire.svg';
+  static const String student = 'assets/images/student.png';
   static const String facebook = 'assets/svgs/facebook.svg';
   static const String cashSvg = 'assets/svgs/cash.svg';
   static const String premiumBadgeSvg = 'assets/svgs/premium_badge.svg';
@@ -98,7 +99,7 @@ class AssetPaths {
   static const String settingsSvg = 'assets/svgs/settings.svg';
   static const String helpCenterSvg = 'assets/svgs/help_center.svg';
   static const String privacyPolicySvg = 'assets/svgs/privacy_policy.svg';
-  static const String logoutSvg = 'assets/svgs/logout.svg';
+  static const String logoutSvg = 'assets/svgs/logout_icon.svg';
   static const String passwordManagerSvg = 'assets/svgs/password_manager.svg';
   static const String deleteAccountSvg = 'assets/svgs/delete_account.svg';
   static const String etqanServiceCardSvg = 'assets/svgs/asas_service_card.svg';

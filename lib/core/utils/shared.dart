@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -245,72 +246,14 @@ class SwitchButton extends StatelessWidget {
                 color: iconColor ?? Get.theme.colorScheme.primary,
               ),
       text: text,
-      trailingWidget:
-          loading
-              ? const LoadingAnimation()
-              : GestureDetector(
-                onTap:
-                    loading
-                        ? null
-                        : () {
-                          onChangeState(!state);
-                        },
-                onHorizontalDragUpdate: (details) {
-                  if (details.delta.dx < 0) {
-                    onChangeState(true);
-                  } else {
-                    onChangeState(false);
-                  }
-                },
-                behavior: HitTestBehavior.opaque,
-                child: Container(
-                  // for touch
-                  alignment: Alignment.center,
-                  height: 25,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 150),
-                    width: 32,
-                    height: 6,
-                    clipBehavior: Clip.none,
-                    decoration: BoxDecoration(
-                      color: state ? Get.theme.colorScheme.primary : Colors.red,
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      clipBehavior: Clip.none,
-                      children: [
-                        AnimatedPositionedDirectional(
-                          top: -4,
-                          end: state ? -2 : 18,
-                          bottom: -4,
-                          duration: const Duration(milliseconds: 150),
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 150),
-                            width: 16,
-                            height: 16,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.white, width: 4),
-                              color:
-                                  state
-                                      ? Get.theme.colorScheme.primary
-                                      : Colors.red,
-                              boxShadow: [
-                                boxShadow(
-                                  Colors.black.withValues(alpha: .4),
-                                  blur: 10,
-                                  y: 3,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+      trailingWidget: Transform.scale(
+        scale: 0.9,
+        child: CupertinoSwitch(
+          value: state,
+          activeColor: Get.theme.colorScheme.primary,
+          onChanged: loading ? null : onChangeState,
+        ),
+      ),
     );
   }
 }
