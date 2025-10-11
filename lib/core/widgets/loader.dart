@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class Loader extends StatelessWidget {
   final Color? color;
@@ -63,8 +64,9 @@ class LoadingAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spinkit = SpinKitRipple(
+    final spinkit = LoadingAnimationWidget.threeArchedCircle(
       color: color ?? Theme.of(context).colorScheme.primary,
+      size: 30.w,
       // itemBuilder: (BuildContext context, int index) {
       //   return DecoratedBox(
       //     decoration: BoxDecoration(
@@ -73,6 +75,6 @@ class LoadingAnimation extends StatelessWidget {
       //   );
       // },
     );
-    return SizedBox(width: 40.w, child: spinkit);
+    return SizedBox(width: 30.w, child: spinkit);
   }
 }
