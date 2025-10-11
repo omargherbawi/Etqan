@@ -5,14 +5,12 @@ import 'package:etqan_edu_app/features/courses/presentation/widgets/course_forum
 import '../../../../config/config.dart';
 import '../../../../core/core.dart';
 import '../../../../core/enums/course_type_enum.dart';
-import '../../../../core/services/hive_services.dart';
 import '../../../../core/services/url_launcher_service.dart';
 import '../../../../core/utils/course_utils.dart';
 import '../../../../core/widgets/badges.dart';
 import '../../../../core/widgets/custom_tabbar_widget.dart';
 import '../../data/models/course_model.dart';
 import '../../data/models/single_course_model.dart';
-import '../../../home/presentation/controllers/last_opened_course_controller.dart';
 import '../controllers/course_detail_controller.dart';
 import '../controllers/current_video_controller.dart';
 import '../controllers/in_app_purchases_controller.dart';
@@ -104,11 +102,10 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
     if (id != null && isBundle != null) {
       await courseDetailsController.fetchCourseData(id!, isBundle!);
 
-      // Save the last opened course to Hive
+      // Prepare course data for CurrentVideoController
       final course = courseDetailsController.singleCourseData.value;
       if (course.id != null) {
         try {
-          final hiveServices = Get.find<HiveServices>();
           final courseData = {
             'id': course.id,
             'title': course.title,
@@ -126,14 +123,10 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
             courseData['rate_type'] = course.rateType!.toJson();
           }
 
-          hiveServices.setLastOpenedCourse(courseData);
-
-          // Refresh the controller if it exists
-          if (Get.isRegistered<LastOpenedCourseController>()) {
-            Get.find<LastOpenedCourseController>().refresh();
-          }
+          // Set course data in video controller so it can be saved when video is played
+          currentVideoController.setCourseData(courseData);
         } catch (e) {
-          debugPrint('Error saving last opened course: $e');
+          debugPrint('Error preparing course data: $e');
         }
       }
     }
